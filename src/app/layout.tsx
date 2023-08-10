@@ -38,6 +38,7 @@ export default function RootLayout({
       </body>
     </html>
   );
+  
   // return (
   //   <html lang="pt-BR">
   //     <body className={inter.className}>
