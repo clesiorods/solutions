@@ -16,3 +16,10 @@ model Todo {
   completed Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+
+model Subscriber {
+  id        Int      @id @default(autoincrement())
+  email     String
+  createdAt DateTime @default(now())
+}

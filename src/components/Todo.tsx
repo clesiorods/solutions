@@ -3,7 +3,6 @@
 import { Todo } from "@prisma/client";
 import { useRouter } from "next/navigation";
 
-
 export default function TodoComponent({ todo }: { todo: Todo }) {
     const router = useRouter();
     const update = async (todo: Todo) => {
