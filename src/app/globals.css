@@ -38,7 +38,9 @@ body {
     transition-colors duration-200;
 }
 
-
+* {
+  scroll-behavior: smooth;
+}
 
 body * {
   /* @apply transition-colors duration-100; */
