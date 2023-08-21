@@ -26,7 +26,7 @@ export default function Home() {
         </header>
 
         <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div>
+          <div className='pl-4'>
             <h1 className="text-5xl font-medium">
               Um pacote completo de soluções para sua empresa!
             </h1>
