@@ -12,19 +12,19 @@ export default function Home() {
   return (
     <main className="flex flex-col">
 
-      <header className="flex items-center justify-between w-full py-10 px-8" >
-        <span className="text-2xl font-black cursor-default" >SOLUTIONS</span>
-        <nav className="flex gap-10" >
-          <Link href="/" >início</Link>
-          {/* <Link href="/sobre" >sobre</Link> */}
-          <a href="#div_sobre">sobre</a>
-          <Link href="/admin/subscribers" >inscritos</Link>
-          <ThemeSwitcher />
-        </nav>
-      </header>
+      <section className='flex flex-col justify-between text-center w-100 px-8 h-screen'>
+        <header className="flex items-center justify-between w-full py-10 px-8" >
+          <span className="text-2xl font-black cursor-default" >SOLUTIONS</span>
+          <nav className="flex gap-10" >
+            <Link href="/" >início</Link>
+            {/* <Link href="/sobre" >sobre</Link> */}
+            <a href="#div_sobre">sobre</a>
+            <Link href="/admin/subscribers" >inscritos</Link>
+            <Link href="/login" >login</Link>
+            <ThemeSwitcher />
+          </nav>
+        </header>
 
-      <section className='flex flex-col justify-between text-center w-100 px-8 h-[calc(100vh-112px)]'>
-        <div></div>
         <div className='grid grid-cols-1 md:grid-cols-2'>
           <div>
             <h1 className="text-5xl font-medium">
@@ -57,9 +57,9 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="p-10">
+      {/* <footer className="p-10">
         <p>Feito com Next.js 13.4</p>
-      </footer>
+      </footer> */}
 
     </main>
   )

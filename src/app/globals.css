@@ -27,3 +27,8 @@ body {
 }
 
 
+button.primary {
+  @apply 
+    bg-violet-500
+    text-zinc-50
+  }
