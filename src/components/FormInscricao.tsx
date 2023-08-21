@@ -31,7 +31,7 @@ export default function FormInscricao() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="bg-sky-700 p-3 rounded">
+            <button className="bg-sky-700 p-3 rounded text-zinc-50">
                 Inscrever-se
             </button>
         </form>

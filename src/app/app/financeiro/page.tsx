@@ -1,15 +1,11 @@
-import prisma from "@/utils/prisma"
 
 function waitFor(ms:number) {
     return new Promise<void>((resolve) => setTimeout(() => resolve(), ms))
 }
 
 export default async function Subscribers() {
-    const subscribers = await prisma.subscriber.findMany();
 
-    await waitFor(2000);
-    // throw new Error("");
-    
+    await waitFor(4000);    
 
     return (
         <div>
@@ -23,13 +19,11 @@ export default async function Subscribers() {
                 </tr>
                 </thead>
                 <tbody>
-                    {subscribers.map((sub) => (
-                        <tr key={sub.id} className="[&>*]:p-4" >
-                            <td>{sub.id}</td>
-                            <td className="text-left" >{sub.email}</td>
-                            <td>{sub.createdAt.toDateString()}</td>
-                        </tr>
-                    ))}
+                    <tr>
+                        <td>Conteudo</td>
+                        <td>Conteudo</td>
+                        <td>Conteudo</td>
+                    </tr>
                 </tbody>
             </table>
         </div>

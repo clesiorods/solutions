@@ -1,7 +1,7 @@
+import ThemeProvider from "@/components/Providers/ThemeProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import Link from "next/link";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '700'] });
 
@@ -17,24 +17,11 @@ export default function RootLayout({
 }) {
 
   return (
-    <html lang="tp-BR">
-      <body className={poppins.className}>
-        <div className="flex min-h-screen flex-col items-center justify-between max-w-5xl mx-auto px-8">
-          <header className="flex items-center justify-between w-full py-10" >
-            <span className="text-2xl font-black cursor-default" >SOLUTIONS</span>
-            <nav className="flex gap-10" >
-              <Link href="/" >início</Link>
-              <Link href="/sobre" >sobre</Link>
-              <Link href="/admin/subscribers" >inscritos</Link>
-            </nav>
-          </header>
-
-          {children}
-
-          <footer className="p-10">
-            <p>Feito com Next.js 13.4</p>
-          </footer>
-        </div>
+    <html lang="tp-BR" suppressHydrationWarning >
+      <body className={`${poppins.className}`} >
+        <ThemeProvider>
+            {children}
+        </ThemeProvider>
       </body>
     </html>
   );
