@@ -35,10 +35,10 @@ export default function Home() {
             </p>
             <FormInscricao />
           </div>
-          <div className='relative flex items-center' >
-            <Image alt='' src={ImageCard01} className='absolute' ></Image>
-            <Image alt='' src={ImageCard02} className='absolute' ></Image>
-            <Image alt='' src={ImageCard03} className='absolute' ></Image>
+          <div className='relative flex items-center justify-center' >
+            <Image alt='' src={ImageCard01} className='absolute w-[80%]' ></Image>
+            <Image alt='' src={ImageCard02} className='absolute w-[80%]' ></Image>
+            <Image alt='' src={ImageCard03} className='absolute w-[80%]' ></Image>
           </div>
         </div>
         <div className='mb-4' >
