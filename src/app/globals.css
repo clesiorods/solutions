@@ -7,6 +7,8 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary-gradient: -webkit-linear-gradient(45deg, #af7cff, #4332c7);
 }
 
 
@@ -27,8 +29,69 @@ body {
 }
 
 
+div.card {
+  @apply
+    bg-slate-100 
+    
+    dark:bg-slate-950 
+}
+
+
+div.form-group {
+  @apply
+    pt-6 
+    w-full     
+}
+
+input {
+  @apply 
+    px-4
+    py-3 
+    w-full
+    border
+    rounded
+    border-slate-300
+    dark:border-none
+    dark:bg-[#1d2840]
+}
+
+label {
+  @apply
+    block
+    text-left
+    mb-2
+}
+
+
+button {
+  transition: .2s all;
+
+  @apply
+    whitespace-nowrap
+    py-3 
+    px-4 
+    rounded 
+}
+
 button.primary {
   @apply 
     bg-violet-500
     text-zinc-50
-  }
+    hover:bg-violet-600
+}
+
+
+button.secondary {
+  @apply 
+  bg-zinc-100 
+  text-zinc-800
+  hover:bg-zinc-200
+}
+
+
+a.primary {
+  color: #8b5cf6;
+}
+a.primary:hover {
+  text-decoration: underline;
+}

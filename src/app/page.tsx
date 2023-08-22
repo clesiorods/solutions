@@ -1,3 +1,5 @@
+import './landingpage.css';
+
 import FormInscricao from '@/components/FormInscricao'
 import ThemeSwitcher from '@/components/ThemeSwither'
 import Image from 'next/image'
@@ -14,7 +16,7 @@ export default function Home() {
 
       <section className='flex flex-col justify-between text-center w-100 px-8 h-screen'>
         <header className="flex items-center justify-between w-full py-10 px-8" >
-          <span className="text-2xl font-black cursor-default" >SOLUTIONS</span>
+          <span className="text-2xl font-black cursor-default text-brand" >SOLUTIONS</span>
           <nav className="flex gap-10" >
             <Link href="/" >início</Link>
             {/* <Link href="/sobre" >sobre</Link> */}
