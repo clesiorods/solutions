@@ -22,9 +22,9 @@ export default function Login() {
             <Image src={Ilustration} alt="Ilustration" className="object-cover w-full sm:ml-[-100px] sm:mb-[-200px]" />
 
             <div className="absolute right-0 sm:w-2/3 w-full sm:m-0 min-h-full flex justify-center items-center bg-white dark:bg-[#020617f7] p-8 sm:p-20">
-                <form className="w-full max-w-xl" >
+                <form className="w-full max-w-lg" >
                     <div className="header text-center mb-8">
-                        <h2 className="text-3xl sm:text-5xl mb-4 font-medium cursor-default">
+                        <h2 className="text-3xl sm:text-5xl mt-6 mb-4 font-medium cursor-default">
                             Bem-vindo de volta ao
                             <br />
                             <strong className="sm:text-[2.5rem] text-brand font-black" >SOLUTIONS</strong>
@@ -79,7 +79,7 @@ export default function Login() {
                 </form>
             </div>
 
-            <div className="fixed right-0 p-4">
+            <div className="absolute right-0 p-4">
                 <ThemeSwitcher />
             </div>
 
