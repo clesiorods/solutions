@@ -9,7 +9,7 @@
 
 
 import Image from "next/image";
-import Ilustration from "@/assets/ilustration-login.jpg";
+import Ilustration from "@/assets/bg-login.jpg";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import ThemeSwitcher from "@/components/ThemeSwither";
@@ -17,21 +17,19 @@ import ThemeSwitcher from "@/components/ThemeSwither";
 
 export default function Login() {
     return (
-        <div className="min-h-screen w-screen flex">
+        <div className="h-screen w-screen flex overflow-hidden">
 
-            <div className="fixed right-0 p-4">
-                <ThemeSwitcher/>
-            </div>
+            <Image src={Ilustration} alt="Ilustration" className="object-cover w-full sm:ml-[-100px] sm:mb-[-200px]" />
 
-            <aside className="bg-violet-500">
-                <Image src={Ilustration} alt="Ilustration" className="object-cover w-full h-full" />
-            </aside>
-
-            <div className="w-full min-h-full flex justify-center items-center bg-white dark:bg-slate-950 p-20">
+            <div className="absolute right-0 sm:w-2/3 w-full sm:m-0 min-h-full flex justify-center items-center bg-white dark:bg-[#020617f7] p-8 sm:p-20">
                 <form className="w-full max-w-xl" >
                     <div className="header text-center mb-8">
-                        <h2 className="text-5xl font-semibold cursor-default" >Bem-vindo de volta</h2>
-                        <sub>não tem uma conta? <Link href="/" className="primary" >Clique aqui</Link></sub>
+                        <h2 className="text-3xl sm:text-5xl mb-4 font-medium cursor-default">
+                            Bem-vindo de volta ao
+                            <br />
+                            <strong className="sm:text-[2.5rem] text-brand font-black" >SOLUTIONS</strong>
+                        </h2>
+                        <sub className="text-sm" >não tem uma conta? <Link href="/" className="primary" >Clique aqui</Link></sub>
                     </div>
                     <div className="content">
                         <div className="form-group">
@@ -80,6 +78,11 @@ export default function Login() {
                     </div>
                 </form>
             </div>
+
+            <div className="fixed right-0 p-4">
+                <ThemeSwitcher />
+            </div>
+
         </div>
     )
 }

@@ -68,7 +68,7 @@ button {
 
   @apply
     whitespace-nowrap
-    py-3 
+    py-3
     px-4 
     rounded 
 }
@@ -94,4 +94,11 @@ a.primary {
 }
 a.primary:hover {
   text-decoration: underline;
+}
+
+
+.text-brand {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
