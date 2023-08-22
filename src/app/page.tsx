@@ -14,8 +14,12 @@ export default function Home() {
   return (
     <main className="flex flex-col">
 
+      <div className="z-[-1] absolute left-0 bottom-0 h-[288px] w-[726px] -translate-x-3/4 bg-purple-500 opacity-40 rounded-full blur-full" />
+      <div className="z-[-1] absolute right-0 top-1/4 h-[388px] w-[626px] -translate-y-1/2 bg-purple-500 opacity-30 rounded-full blur-full" />
+
       <section className='flex flex-col justify-between text-center w-100 px-8 h-screen'>
-        <header className="flex items-center justify-between w-full py-10 px-8" >
+        
+        <header className="flex items-center justify-between w-full pt-8 pb-4 px-8" >
           <span className="text-2xl font-black cursor-default text-brand" >SOLUTIONS</span>
           <nav className="flex gap-10" >
             <Link href="/" >início</Link>
@@ -28,7 +32,7 @@ export default function Home() {
         </header>
 
         <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div className='pl-4'>
+          <div className='pl-12'>
             <h1 className="text-5xl font-medium">
               Um pacote completo de soluções para sua empresa!
             </h1>
@@ -43,6 +47,7 @@ export default function Home() {
             <Image alt='' src={ImageCard03} className='absolute w-[80%]' ></Image>
           </div>
         </div>
+
         <div className='mb-4' >
           <span>
             Ver mais

@@ -27,7 +27,7 @@ export default function FormInscricao() {
                 name="email"
                 id="email"
                 placeholder="Seu e-mail principal"
-                className="primary"
+                className="primary w-3/4"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
