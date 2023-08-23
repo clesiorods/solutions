@@ -19,9 +19,9 @@ export default function Login() {
     return (
         <div className="h-screen w-screen flex overflow-hidden">
 
-            <Image src={Ilustration} alt="Ilustration" className="w-full h-full object-cover blur-sm" />
+            <Image src={Ilustration} alt="Ilustration" className="w-full h-[102%] object-cover blur-sm m-[-8px]" />
 
-            <div className="absolute right-0 sm:w-2/3 w-full sm:m-0 min-h-full flex justify-center items-center bg-white dark:bg-[#020617f7] p-8 sm:px-20">
+            <div className="fixed right-0 sm:w-2/3 w-full sm:m-0 min-h-full flex justify-center items-center bg-white dark:bg-[#020617f7] p-8 sm:px-20">
                 <form className="w-full max-w-lg" >
                     <div className="header text-center mb-8">
                         <h2 className="text-3xl sm:text-5xl mt-6 mb-4 font-medium cursor-default">
