@@ -27,11 +27,11 @@ export default function FormInscricao() {
                 name="email"
                 id="email"
                 placeholder="Seu e-mail principal"
-                className="primary w-3/4"
+                className="input_lg primary w-3/4"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-            <button className="primary">
+            <button className="button_lg primary">
                 Contacte-nos
             </button>
         </form>

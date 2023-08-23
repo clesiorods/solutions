@@ -9,7 +9,7 @@
 
 
 import Image from "next/image";
-import Ilustration from "@/assets/bg-login.jpg";
+import Ilustration from "@/assets/bg-login-cropped.jpg";
 import Link from "next/link";
 import Icon from "@/components/Icon";
 import ThemeSwitcher from "@/components/ThemeSwither";
@@ -19,13 +19,13 @@ export default function Login() {
     return (
         <div className="h-screen w-screen flex overflow-hidden">
 
-            <Image src={Ilustration} alt="Ilustration" className="object-cover w-full sm:ml-[-100px] sm:mb-[-200px]" />
+            <Image src={Ilustration} alt="Ilustration" className="w-full h-full object-cover blur-sm" />
 
             <div className="absolute right-0 sm:w-2/3 w-full sm:m-0 min-h-full flex justify-center items-center bg-white dark:bg-[#020617f7] p-8 sm:px-20">
                 <form className="w-full max-w-lg" >
                     <div className="header text-center mb-8">
                         <h2 className="text-3xl sm:text-5xl mt-6 mb-4 font-medium cursor-default">
-                            Bem-vindo de volta ao
+                            Bem-vindo ao
                             <br />
                             <strong className="sm:text-[2.5rem] text-brand font-black" >SOLUTIONS</strong>
                         </h2>
@@ -57,7 +57,7 @@ export default function Login() {
                         </div>
 
 
-                        <div className="border border-t-[1px solid] border-x-0 border-b-0 mt-12 py-8">
+                        <div className="border border-t-[1px solid] border-x-0 border-b-0 mt-11 py-8">
                             <p className="text-center" >Ou entre ultilizando suas redes sociais</p>
                             <div className="flex gap-4 mt-6" >
                                 <div className="w-1/2" >

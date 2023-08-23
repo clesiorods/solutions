@@ -38,6 +38,7 @@ div.card {
 
 
 div.form-group {
+  border-color: red;
   @apply
     pt-6 
     w-full     
@@ -45,9 +46,9 @@ div.form-group {
 
 input {
   width: 100%;
+  padding: 8px 14px;
+  height: 42px;
   @apply 
-    px-4
-    py-3 
     border
     rounded
     border-slate-300
@@ -55,22 +56,37 @@ input {
     dark:bg-[#1d2840]
 }
 
+input.input_lg {
+  height: 48px;
+  @apply
+    px-4
+    py-3 
+}
+
+
 label {
   @apply
     block
     text-left
-    mb-2
+    mb-[4px]
 }
 
 
 button {
   transition: .2s all;
-
+  padding: 6px 12px;
+  height: 42px;
   @apply
     whitespace-nowrap
+    rounded 
+}
+
+
+button.button_lg {
+  height: 48px;
+  @apply
     py-3
     px-4 
-    rounded 
 }
 
 button.primary {

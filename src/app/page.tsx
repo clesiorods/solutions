@@ -21,7 +21,7 @@ export default function Home() {
         
         <header className="flex items-center justify-between w-full pt-8 pb-4 px-8" >
           <span className="text-2xl font-black cursor-default text-brand" >SOLUTIONS</span>
-          <nav className="flex gap-10" >
+          <nav className="flex gap-10">
             <Link href="/" >início</Link>
             {/* <Link href="/sobre" >sobre</Link> */}
             <a href="#div_sobre">sobre</a>
