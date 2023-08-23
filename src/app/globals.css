@@ -35,8 +35,6 @@ div.card {
     
     dark:bg-slate-950 
 }
-
-
 div.form-group {
   border-color: red;
   @apply
@@ -44,18 +42,18 @@ div.form-group {
     w-full     
 }
 
+
 input {
   width: 100%;
   padding: 8px 14px;
   height: 42px;
   @apply 
-    border
     rounded
+    border
     border-slate-300
     dark:border-none
     dark:bg-[#1d2840]
 }
-
 input.input_lg {
   height: 48px;
   @apply
@@ -80,25 +78,23 @@ button {
     whitespace-nowrap
     rounded 
 }
-
-
 button.button_lg {
   height: 48px;
   @apply
     py-3
     px-4 
 }
-
 button.primary {
   @apply 
     bg-violet-500
     text-zinc-50
     hover:bg-violet-600
 }
-
-
 button.secondary {
   @apply 
+  border
+  border-zinc-200
+  dark:border-none
   bg-zinc-100 
   text-zinc-800
   hover:bg-zinc-200
