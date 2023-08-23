@@ -41,7 +41,7 @@ export default function FormLogin() {
             </div>
 
             <div className="form-group mt-4">
-                <Link href={"/financeiro"}>
+                <Link href={"/app/financeiro"}>
                     <button className="primary w-full" >Entrar</button>
                 </Link>
             </div>

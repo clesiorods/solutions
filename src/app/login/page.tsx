@@ -18,7 +18,7 @@ import FormLogin from "@/components/FormLogin";
 
 export default function Login() {
     return (
-        <div className="h-screen w-screen flex overflow-hidden">
+        <div className="h-screen w-screen flex overflow-hidden ">
 
             <Image src={Ilustration} alt="Ilustration" className="w-full h-[102%] object-cover blur-sm m-[-8px]" />
 
