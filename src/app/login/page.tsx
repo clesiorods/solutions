@@ -22,8 +22,8 @@ export default function Login() {
 
             <Image src={Ilustration} alt="Ilustration" className="fixed w-full min-h-full object-cover blur-sm" />
 
-            <div className="z-[2] absolute sm:w-2/3 w-full h-full overflow-auto flex justify-center items-center bg-white dark:bg-[#020617f7] p-8 sm:px-20">
-                <div className="w-full max-w-lg" >
+            <div className="z-[1] absolute sm:w-2/3 w-full h-full overflow-auto flex justify-center items-center bg-white dark:bg-[#020617f7] p-8 sm:px-20">
+                <div className="w-full max-w-lg top-0" >
                     <div className="header text-center mb-8">
                         <h2 className="text-3xl sm:text-5xl mt-6 mb-1 font-medium cursor-default">
                             Bem-vindo ao
