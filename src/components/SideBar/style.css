@@ -1,0 +1,32 @@
+nav {
+    background-color:#020617f7;
+    height: 100%;
+    width: 265px;
+    color: white;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 18px;
+    @apply
+    h-[70px]
+    border-b
+    border-b-zinc-400
+    border-dashed
+}
+
+.text-brand {
+}
+
+.icon_case {
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    height: 30px;
+    width: 30px;
+    background: #323C55;
+    border-radius: 5px;
+}
