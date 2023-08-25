@@ -1,4 +1,6 @@
+import Footer from "@/components/Footer";
 import SideBar from "@/components/SideBar";
+import TopBar from "@/components/TopBar";
 
 export default function Layout({
   children,
@@ -7,10 +9,13 @@ export default function Layout({
 }) {
 
   return (
-    <main className="flex h-screen w-screen" >
-      <SideBar/>
+    <div className="flex h-screen w-screen" >
+      <SideBar />
+      <div className="flex flex-col w-full ">
+        <TopBar />
         {children}
-    </main>
+        <Footer />
+      </div>
+    </div>
   );
-
 }

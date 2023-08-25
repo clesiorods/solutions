@@ -9,7 +9,6 @@ export default async function Resume() {
 
     return (
         <div>
-            Olá
         </div>
     )
 }

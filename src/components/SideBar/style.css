@@ -1,10 +1,11 @@
-nav {
+nav#side_bar {
     background-color:#020617f7;
     height: 100%;
-    width: 265px;
+    width: 280px;
     color: white;
+    @apply
+    dark:bg-card-dark
 }
-
 
 header {
     display: flex;
@@ -13,12 +14,6 @@ header {
     padding: 0px 18px;
     @apply
     h-[70px]
-    border-b
-    border-b-zinc-400
-    border-dashed
-}
-
-.text-brand {
 }
 
 .icon_case {

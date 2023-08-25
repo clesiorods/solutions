@@ -19,10 +19,10 @@
 
 body {
   @apply 
-    bg-slate-100 
+    bg-light
     text-slate-900 
     
-    dark:bg-slate-950 
+    dark:bg-dark 
     dark:text-slate-100 
     
     transition-colors duration-200;

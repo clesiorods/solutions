@@ -14,12 +14,12 @@ export default function Home() {
   return (
     <main className="flex flex-col">
 
-      <div className="z-[-1] absolute left-0 bottom-0 h-[288px] w-[726px] -translate-x-3/4 bg-purple-500 opacity-40 rounded-full blur-full" />
-      <div className="z-[-1] absolute right-0 top-1/4 h-[388px] w-[626px] -translate-y-1/2 bg-purple-500 opacity-30 rounded-full blur-full" />
 
-      <section className='flex flex-col justify-between text-center w-100 px-8 h-screen'>
+      <section className='flex flex-col justify-between text-center w-100 px-8 h-screen bg-white dark:bg-highlight-dark'>
+      <div className=" absolute left-0 bottom-0 h-[288px] w-[726px] -translate-x-3/4 bg-purple-500 opacity-40 rounded-full blur-full" />
+      <div className=" absolute right-0 top-1/4 h-[388px] w-[626px] -translate-y-1/2 bg-purple-500 opacity-30 rounded-full blur-full" />
         
-        <header className="flex items-center justify-between w-full pt-8 pb-4 px-8" >
+        <header className="z-[2] flex items-center justify-between w-full pt-8 pb-4 px-8" >
           <span className="text-2xl font-black cursor-default text-brand" >SOLUTIONS</span>
           <nav className="flex gap-10">
             <Link href="/" >início</Link>
@@ -32,7 +32,7 @@ export default function Home() {
         </header>
 
         <div className='grid grid-cols-1 md:grid-cols-2'>
-          <div className='pl-12'>
+          <div className='z-[3] pl-12'>
             <h1 className="text-5xl font-medium">
               Um pacote completo de soluções para sua empresa!
             </h1>
@@ -57,7 +57,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id='div_sobre' className='text-center h-screen w-100 bg-white'>
+      <section id='div_sobre' className='text-center h-screen w-100'>
         <div>
           <h2>Sobre</h2>
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>

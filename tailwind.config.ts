@@ -9,6 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        'light': '#f9f9f9',
+        'card-light': '#ffffff',
+        'dark': 'rgb(23 27 37)',
+        'card-dark': 'rgb(11 15 25)',
+        'highlight-dark': '#020617'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
