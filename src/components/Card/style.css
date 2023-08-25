@@ -1,0 +1,9 @@
+article.card {
+    border-radius: 0.625rem;
+    padding: 18px 30px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);
+    @apply
+    bg-card-light
+    dark:bg-card-dark
+}

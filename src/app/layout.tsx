@@ -1,5 +1,6 @@
 import ThemeProvider from "@/components/Providers/ThemeProvider";
 import "./globals.css";
+import "./grid.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 
