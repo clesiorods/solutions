@@ -9,12 +9,12 @@ export default function Layout({
 }) {
 
   return (
-    <div className="flex h-screen w-screen" >
+    <div className="flex h-screen w-screen overflow-hidden" >
       <SideBar />
-      <div className="flex flex-col w-full ">
+      <div className="flex flex-col w-full">
         <TopBar />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

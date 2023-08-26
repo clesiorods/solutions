@@ -1,7 +1,7 @@
 nav#side_bar {
     background-color:#020617f7;
     height: 100%;
-    width: 280px;
+    width: 300px;
     color: white;
     @apply
     dark:bg-card-dark
