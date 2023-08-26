@@ -11,7 +11,6 @@ export default function SideBar() {
                 <div className="icon_case">
                     <Icon icon="ep:arrow-left-bold" />
                 </div>
-
             </header>
         </nav>
     );
