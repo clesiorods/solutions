@@ -1,7 +1,8 @@
 nav#side_bar {
     background-color:#020617f7;
     height: 100%;
-    width: 300px;
+    width: 265px;
+    min-width: 265px;
     color: white;
     @apply
     dark:bg-card-dark
@@ -21,7 +22,30 @@ header {
     align-items: center;
     justify-content: center;
     height: 30px;
-    width: 30px;
-    background: #323C55;
+    min-width: 30px;
+    background: #ffffff12;
     border-radius: 5px;
+}
+
+ul#ul_modules {
+    margin: 18px 21px;
+    @apply
+    text-[14px]
+}
+
+ul#ul_modules > li > a {
+    @apply
+    px-2
+    py-2
+    flex
+    gap-2
+    text-gray-300
+    mb-2
+}
+
+svg.nav_icon {
+    @apply
+    mt-[0px]
+    w-5
+    h-5
 }

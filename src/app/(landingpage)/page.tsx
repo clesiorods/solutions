@@ -5,9 +5,9 @@ import ThemeSwitcher from '@/components/ThemeSwither'
 import Image from 'next/image'
 import Link from 'next/link'
 
-import ImageCard01 from '@/assets/lp_credcard_01.png';
-import ImageCard02 from '@/assets/lp_credcard_02.png';
-import ImageCard03 from '@/assets/lp_credcard_03.png';
+import ImageCard01 from '@/assets/landingpage/lp_credcard_01.png';
+import ImageCard02 from '@/assets/landingpage/lp_credcard_02.png';
+import ImageCard03 from '@/assets/landingpage/lp_credcard_03.png';
 
 
 export default function Home() {

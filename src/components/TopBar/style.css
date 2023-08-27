@@ -1,3 +1,7 @@
+nav#top_bar > * {
+    transition: .2s all;
+}
+
 nav#top_bar {
     display: flex;
     justify-content: space-between;
@@ -19,5 +23,24 @@ ul#ul_module_sections {
     display: flex;
     margin: 0;
     padding: 0;
-    gap: 16px;
+    gap: 5px;
+}
+
+ul#ul_module_sections > li > a{
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+ul#ul_module_sections > li > a:hover {
+    background-color: #171b4a0a;
+}
+
+ul#ul_module_sections > li > a.active {
+    background-color: #171b4a0a;
+    color: #8b5cf6;
+    font-weight: 500;
+    @apply 
+    
+    dark:bg-[#ffffff08]
 }
