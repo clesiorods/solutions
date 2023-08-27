@@ -2,10 +2,18 @@ nav#side_bar {
     background-color:#020617f7;
     height: 100%;
     width: 265px;
-    min-width: 265px;
     color: white;
     @apply
     dark:bg-card-dark
+}
+
+nav#side_bar:has(button.compactedSideBar) {
+    width: 70px;
+    background-color:red !important;
+}
+
+nav#side_bar:has(button.hiddenSideBar) {
+    display: none;
 }
 
 header {
