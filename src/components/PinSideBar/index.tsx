@@ -10,7 +10,7 @@ export default function PinSideBar() {
 
   return (
     <button className={`${sideBarClass}`} >
-      <Icon icon="solar:pin-circle-bold-duotone" /> {sideBarClass}
+      <Icon icon="solar:pin-circle-bold-duotone" />
     </button>
   );
 }

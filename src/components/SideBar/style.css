@@ -1,19 +1,13 @@
+/*/////////////////// CSS DA SIDEBAR PADRÃO //////////////////////*/
+
 nav#side_bar {
     background-color:#020617f7;
     height: 100%;
-    width: 265px;
+    width: 285px;
     color: white;
+    transition: .3s all;
     @apply
     dark:bg-card-dark
-}
-
-nav#side_bar:has(button.compactedSideBar) {
-    width: 70px;
-    background-color:red !important;
-}
-
-nav#side_bar:has(button.hiddenSideBar) {
-    display: none;
 }
 
 header {
@@ -36,18 +30,32 @@ header {
 }
 
 ul#ul_modules {
-    margin: 18px 21px;
+    margin: 12px 20px;
     @apply
     text-[14px]
 }
 
+ul#ul_modules > li {
+    border-radius: 5px;
+    @apply
+    text-gray-300
+}
+
+ul#ul_modules > li:hover {
+    background: #ffffff12;
+}
+    
+ul#ul_modules > li.active {
+    background: #491b89;
+    color: white;
+}
+
 ul#ul_modules > li > a {
     @apply
-    px-2
+    px-3
     py-2
     flex
     gap-2
-    text-gray-300
     mb-2
 }
 
@@ -56,4 +64,56 @@ svg.nav_icon {
     mt-[0px]
     w-5
     h-5
+}
+
+.nav_text {
+    white-space: nowrap;
+}
+
+/* APLICANDO EFEITO DE TRANSIÇÃO NOS ELEMENTOS FILHOS */
+nav#side_bar:has(button.compactedSideBar) > header > h1 {transition: .2s all;}
+nav#side_bar > ul {transition: .2s all;}
+nav#side_bar > ul > li > a {transition: .2s all;}
+nav#side_bar > ul > li > a > span.nav_text {transition: .2s all;}
+
+
+/*/////////////////// CSS DA SIDEBAR COMPACTADA //////////////////////*/
+nav#side_bar:has(button.compactedSideBar) .header_group {
+    opacity: 0;
+}
+
+nav#side_bar:has(button.compactedSideBar) > header > h1 {
+    /* padding-left: 40px; */
+    width: 0px;
+    opacity: 0;
+}
+nav#side_bar:has(button.compactedSideBar) > header > .icon_case {
+    width: 0px;
+    opacity: 0;
+}
+
+nav#side_bar:has(button.compactedSideBar) {
+    width: 70px;
+}
+nav#side_bar:has(button.compactedSideBar) > ul {
+    margin: 10px;
+}
+nav#side_bar:has(button.compactedSideBar) > ul > li > a {
+    padding: 10px 0px 10px 16px;
+    gap: 0px;
+}
+nav#side_bar:has(button.compactedSideBar) > ul > li > a > span.nav_text {
+    width: 0px;
+    opacity: 0;
+}
+
+
+
+
+
+
+/*/////////////////// CSS DA SIDEBAR ESCONDIDA //////////////////////*/
+
+nav#side_bar:has(button.hiddenSideBar) {
+    display: none;
 }
