@@ -4,77 +4,89 @@ import "./style.css";
 import Logo from "@/assets/logo_solutions.png";
 import Link from "next/link";
 import PinSideBar from "../PinSideBar";
+import CalcIcoin from "../Icons/IconCalcDual";
+import IconCalcDual from "../Icons/IconCalcDual";
+import IconCalendarDual from "../Icons/IconCalendarDual";
+import IconChatDual from "../Icons/IconChatDual";
+import IconChackListDual from "../Icons/IconCheckListDual";
+import IconPeopleDual from "../Icons/IconPeopleDual";
+import IconSaleTagDual from "../Icons/IconSaleTagDual";
+import IconWalletDual from "../Icons/IconWalletDual";
 
 
 export default function SideBar() {
 
     return (
-        <nav id="side_bar">
-            <header className="border-b border-dashed border-[#352c5e]" >
-                <Image alt="" src={Logo} className="w-[30px] ml-1" />
-                <h1 className="text-xl pl-3 font-semibold cursor-default w-full" >SOLUTIONS</h1>
-                <div className="icon_case">
-                    <PinSideBar />
-                </div>
-            </header>
+        <>
+            <div className="h-[70px] bg-white w-full absolute dark:bg-card-dark" style={{transition:'.2s all'}} ></div>
 
-            <h6 className="mt-4 ml-[32px] text-[10px] opacity-50 header_group">MÓDULOS</h6>
+            <nav id="side_bar">
+                <header className="border-b border-dashed border-[#352c5e]" >
+                    <Image alt="" src={Logo} className="w-[30px] ml-[2px]" />
+                    <h1 className="text-xl pl-3 font-semibold cursor-default w-full" >SOLUTIONS</h1>
+                    <div className="icon_case">
+                        <PinSideBar />
+                    </div>
+                </header>
 
-            <ul id="ul_modules">
-                <li className="active">
-                    <Link href={'/'} className="">
-                        <Icon className="nav_icon" icon="solar:wallet-money-bold-duotone" />
-                        <span className='nav_text'> Financeiro </span>
-                    </Link>
-                </li>
+                <h6 className="mt-4 ml-[32px] text-[10px] opacity-50 header_group">MÓDULOS</h6>
 
-                <li className="">
-                    <Link href={'/'} className="">
-                        <Icon className="nav_icon" icon="solar:ticket-sale-bold-duotone" />
-                        <span className='nav_text'> Vendas </span>
-                    </Link>
-                </li>
+                <ul id="ul_modules">
+                    <li className="active">
+                        <Link href={'/'} className="">
+                            <IconWalletDual className="nav_icon" />
+                            <span className='nav_text'> Financeiro </span>
+                        </Link>
+                    </li>
 
-                <li className="">
-                    <Link href={'/'} className="">
-                        <Icon className="nav_icon" icon="solar:users-group-two-rounded-line-duotone" />
-                        <span className='nav_text'> CRM </span>
-                    </Link>
-                </li>
+                    <li className="">
+                        <Link href={'/'} className="">
+                            <IconSaleTagDual className="nav_icon" />
+                            <span className='nav_text'> Vendas </span>
+                        </Link>
+                    </li>
 
-                <li className="">
-                    <Link href={'/'} className="">
-                        <Icon className="nav_icon" icon="solar:checklist-minimalistic-bold-duotone" />
-                        <span className='nav_text'> Minhas Tarefas </span>
-                    </Link>
-                </li>
+                    <li className="">
+                        <Link href={'/'} className="">
+                            <IconPeopleDual className="nav_icon" />
+                            <span className='nav_text'> CRM </span>
+                        </Link>
+                    </li>
 
-                <li className="">
-                    <Link href={'/'} className="">
-                        <Icon className="nav_icon" icon="solar:chat-square-call-line-duotone" />
-                        <span className='nav_text'> Chat </span>
-                    </Link>
-                </li>
-            </ul>
+                    <li className="">
+                        <Link href={'/'} className="">
+                            <IconChackListDual className="nav_icon" />
+                            <span className='nav_text'> Minhas Tarefas </span>
+                        </Link>
+                    </li>
 
-            <h6 className="mt-4 ml-[32px] text-[10px] opacity-50 header_group">APPS</h6>
+                    <li className="">
+                        <Link href={'/'} className="">
+                            <IconChatDual className="nav_icon" />
+                            <span className='nav_text'> Chat </span>
+                        </Link>
+                    </li>
+                </ul>
 
-            <ul id="ul_modules">
-                <li className="">
-                    <Link href={'/'} className="">
-                        <Icon className="nav_icon" icon="solar:calculator-minimalistic-bold-duotone" />
-                        <span className='nav_text'> Calculadora </span>
-                    </Link>
-                </li>
+                <h6 className="mt-4 ml-[32px] text-[10px] opacity-50 header_group">APPS</h6>
 
-                <li className="">
-                    <Link href={'/'} className="">
-                        <Icon className="nav_icon" icon="solar:calendar-bold-duotone" />
-                        <span className='nav_text'> Calendário </span>
-                    </Link>
-                </li>
-            </ul>
+                <ul id="ul_modules">
+                    <li className="">
+                        <Link href={'/'} className="">
+                            <IconCalcDual className="nav_icon" />
+                            <span className='nav_text'> Calculadora </span>
+                        </Link>
+                    </li>
 
-        </nav>
+                    <li className="">
+                        <Link href={'/'} className="">
+                            <IconCalendarDual className="nav_icon" />
+                            <span className='nav_text'> Calendário </span>
+                        </Link>
+                    </li>
+                </ul>
+
+            </nav>
+        </>
     );
 }

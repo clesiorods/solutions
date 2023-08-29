@@ -3,6 +3,7 @@
 import { useResponsiveClass } from "@/context/responsive.sidebar";
 import React from "react";
 import Icon from "../Icon";
+import IconPinDual from "../Icons/IconPinDual";
 
 export default function PinSideBar() {
 
@@ -10,7 +11,7 @@ export default function PinSideBar() {
 
   return (
     <button className={`${sideBarClass}`} >
-      <Icon icon="solar:pin-circle-bold-duotone" />
+      <IconPinDual className="w-4" />
     </button>
   );
 }

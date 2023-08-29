@@ -2,12 +2,25 @@
 
 nav#side_bar {
     background-color:#020617f7;
-    height: 100%;
-    width: 285px;
+    /* height: 100%; */
+    /* height: calc(100% - 8px); */
+    width: 290px;
     color: white;
     transition: .3s all;
+    /* border-radius: 0 8px 8px 0; */
+    /* border-radius: 10px; */
+    margin: 4px;
+    box-shadow: 0px 0px 12px #00000063;
+    z-index: 1;
     @apply
-    dark:bg-card-dark
+    h-[calc(100%-12px)]
+    m-[6px]
+    rounded-[10px]
+
+    dark:m-0
+    dark:rounded-none
+    dark:h-full
+    dark:bg-card-dark;
 }
 
 header {
@@ -16,7 +29,8 @@ header {
     justify-content: space-between;
     padding: 0px 18px;
     @apply
-    h-[70px]
+    h-[66px]
+    dark:h-[70px]
 }
 
 .icon_case {
@@ -30,7 +44,7 @@ header {
 }
 
 ul#ul_modules {
-    margin: 12px 20px;
+    margin: 10px 18px;
     @apply
     text-[14px]
 }
@@ -46,8 +60,9 @@ ul#ul_modules > li:hover {
 }
     
 ul#ul_modules > li.active {
-    background: #491b89;
+    background: linear-gradient(106deg, rgb(46 12 136) 0%, rgb(64 22 151) 51%, rgba(92,0,147,1) 100%);
     color: white;
+    box-shadow: 0px 2px 12px #454eff21;
 }
 
 ul#ul_modules > li > a {
@@ -68,6 +83,7 @@ svg.nav_icon {
 
 .nav_text {
     white-space: nowrap;
+    margin-left:2px;
 }
 
 /* APLICANDO EFEITO DE TRANSIÇÃO NOS ELEMENTOS FILHOS */
