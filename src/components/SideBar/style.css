@@ -9,17 +9,17 @@ nav#side_bar {
     transition: .3s all;
     /* border-radius: 0 8px 8px 0; */
     /* border-radius: 10px; */
-    margin: 4px;
     box-shadow: 0px 0px 12px #00000063;
     z-index: 1;
     @apply
-    h-[calc(100%-12px)]
-    m-[6px]
+    h-[calc(100%-16px)]
+    m-[8px]
     rounded-[10px]
 
-    dark:m-0
+    /* dark:m-0
     dark:rounded-none
-    dark:h-full
+    dark:h-full */
+    dark:shadow-none
     dark:bg-card-dark;
 }
 
@@ -30,15 +30,14 @@ header {
     padding: 0px 18px;
     @apply
     h-[66px]
-    dark:h-[70px]
 }
 
 .icon_case {
     display: flex; 
     align-items: center;
     justify-content: center;
-    height: 30px;
-    min-width: 30px;
+    height: 26px;
+    min-width: 26px;
     background: #ffffff12;
     border-radius: 5px;
 }
@@ -51,8 +50,10 @@ ul#ul_modules {
 
 ul#ul_modules > li {
     border-radius: 5px;
+    overflow: hidden;
     @apply
     text-gray-300
+    mb-2
 }
 
 ul#ul_modules > li:hover {
@@ -71,7 +72,6 @@ ul#ul_modules > li > a {
     py-2
     flex
     gap-2
-    mb-2
 }
 
 svg.nav_icon {
@@ -131,5 +131,15 @@ nav#side_bar:has(button.compactedSideBar) > ul > li > a > span.nav_text {
 /*/////////////////// CSS DA SIDEBAR ESCONDIDA //////////////////////*/
 
 nav#side_bar:has(button.hiddenSideBar) {
-    display: none;
+    margin-left: -300px;
+}
+nav#side_bar:has(button.hiddenSideBar) > ul > li > a > span.nav_text {
+    opacity: 0;
+}
+nav#side_bar:has(button.hiddenSideBar) .header_group {
+    opacity: 0;
+}
+
+nav#side_bar:has(button.hiddenSideBar) header {
+    opacity: 0;
 }

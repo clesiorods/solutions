@@ -18,12 +18,12 @@ export default function SideBar() {
 
     return (
         <>
-            <div className="h-[70px] bg-white w-full absolute dark:bg-card-dark" style={{transition:'.2s all'}} ></div>
+            {/* <div className="h-[70px] bg-white w-full absolute dark:bg-card-dark" style={{transition:'.2s all'}} ></div> */}
 
             <nav id="side_bar">
                 <header className="border-b border-dashed border-[#352c5e]" >
                     <Image alt="" src={Logo} className="w-[30px] ml-[2px]" />
-                    <h1 className="text-xl pl-3 font-semibold cursor-default w-full" >SOLUTIONS</h1>
+                    <h1 className="text-xl pl-3 font-semibold cursor-default w-full overflow-hidden" >SOLUTIONS</h1>
                     <div className="icon_case">
                         <PinSideBar />
                     </div>
