@@ -10,12 +10,13 @@ export default async function Resume() {
     // await waitFor(2000);    
 
     return (
-        <main className="p-[6px] pr-[17px] mt-[11px] ml-0 w-full overflow-y-auto">
+        <main className="p-[18px] w-full ml-0 overflow-y-auto">
             <div className="row">
                 <div className="col-md-12 col-xl-6">
                     <div className="row">
                         <div className="col-md-6">
                             <Card className="h-56" >
+                                <p>Era uma casa muitp engraçada, não tinha teto não tinha nada.</p>
                             </Card>
                         </div>
                         <div className="col-md-6">
@@ -36,6 +37,9 @@ export default async function Resume() {
                 </div>
                 <div className="col-md-12 col-xl-6">
                     <Card className="h-[468px]" >
+                        <p>Neste parágrafo terá algum alista de contas, ou uma lista de saldos baseados na situação financeira dos mês.</p>
+                        <br />
+                        <p>Segundp parágrafo, apenas para preenchimento do card, para verificação de responsividade. Segundp parágrafo, apenas para preenchimento do card, para verificação de responsividade.</p>
                     </Card>
                 </div>
             </div>

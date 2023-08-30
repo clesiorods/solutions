@@ -42,7 +42,7 @@ export default function FormLogin() {
 
             <div className="form-group mt-4">
                 <Link href={"/app/financeiro"}>
-                    <button className="primary w-full" >Entrar</button>
+                    <button className="primary w-full" style={{background:'linear-gradient(106deg, rgb(71 36 164) 0%, rgb(102 58 193) 51%, rgb(139 33 202) 100%)'}} >Entrar</button>
                 </Link>
             </div>
 

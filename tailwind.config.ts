@@ -14,6 +14,7 @@ const config: Config = {
         'card-light': '#ffffff',
         'dark': 'rgb(23 27 37)',
         'card-dark': 'rgb(11 15 25)',
+        'card-soft-dark': '#10141f',
         'highlight-dark': '#020617'
       },
       backgroundImage: {

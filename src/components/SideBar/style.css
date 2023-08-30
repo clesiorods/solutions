@@ -10,18 +10,18 @@ nav#side_bar {
     /* border-radius: 0 8px 8px 0; */
     /* border-radius: 10px; */
     box-shadow: 0px 0px 12px #00000063;
-    z-index: 1;
+    /* z-index: 1; */
     @apply
     h-[calc(100%-22px)]
     mt-[12px]
-    ml-[16px]
-    mr-[12px]
+    ml-[14px]
+    mr-0
     rounded-[10px]
 
     /* dark:m-0
     dark:rounded-none
     dark:h-full */
-    dark:shadow-none
+    dark:shadow-[-28px_0px_18px_#ffffff0f]
     dark:bg-card-dark;
 }
 
@@ -63,7 +63,7 @@ ul#ul_modules > li:hover {
 }
     
 ul#ul_modules > li.active {
-    background: linear-gradient(106deg, rgb(46 12 136) 0%, rgb(64 22 151) 51%, rgba(92,0,147,1) 100%);
+    background: linear-gradient(106deg, rgb(71 36 164) 0%, rgb(102 58 193) 51%, rgb(139 33 202) 100%);
     color: white;
     box-shadow: 0px 2px 12px #454eff21;
 }
@@ -133,7 +133,7 @@ nav#side_bar:has(button.compactedSideBar) > ul > li > a > span.nav_text {
 /*/////////////////// CSS DA SIDEBAR ESCONDIDA //////////////////////*/
 
 nav#side_bar:has(button.hiddenSideBar) {
-    margin-left: -300px;
+    margin-left: -288px;
 }
 nav#side_bar:has(button.hiddenSideBar) > ul > li > a > span.nav_text {
     opacity: 0;
