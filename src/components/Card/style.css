@@ -1,9 +1,9 @@
 article.card {
     border-radius: 0.625rem;
     padding: 18px 30px;
-    margin-bottom: 24px;
-    box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.02);
+    margin-bottom: 20px;
     @apply
+    shadow-[0px_0px_20px_0px_rgba(76,87,125,0.04)]
     bg-card-light
     dark:bg-card-dark
 }

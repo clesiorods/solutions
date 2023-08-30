@@ -8,12 +8,13 @@ nav#top_bar {
     justify-content: space-between;
     align-items: center;
     padding: 0px 30px;
-    width: calc(100% - 11px);
+    width: calc(100% - 21px);
     height: 64px;
     min-height: 64px;
     box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.04);
     transition: .2s all;
-    margin: 8px 2px;
+    margin: 12px 0px 0px 5px;
+
     border-radius: 10px;
     @apply
     bg-card-dark
