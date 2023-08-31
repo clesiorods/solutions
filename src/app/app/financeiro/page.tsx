@@ -1,5 +1,6 @@
 import Card from "@/components/Card"
 import Footer from "@/components/Footer"
+import Chart from "@/components/charts"
 
 function waitFor(ms: number) {
     return new Promise<void>((resolve) => setTimeout(() => resolve(), ms))
@@ -7,20 +8,19 @@ function waitFor(ms: number) {
 
 export default async function Resume() {
 
-    // await waitFor(2000);    
+    await waitFor(4000);
 
     return (
         <main className="p-[18px] w-full ml-0 overflow-y-auto">
             <div className="row">
                 <div className="col-md-12 col-xl-6">
                     <div className="row">
-                        <div className="col-md-6">
+                        <div className="col-md-12">
                             <Card className="h-56" >
                                 <p>Era uma casa muitp engraçada, não tinha teto não tinha nada.</p>
-                            </Card>
-                        </div>
-                        <div className="col-md-6">
-                            <Card className="h-56" >
+                                <div className="h-[80%]">
+                                    <Chart />
+                                </div>
                             </Card>
                         </div>
                     </div>
@@ -55,7 +55,7 @@ export default async function Resume() {
                 </div>
             </div>
 
-            <Footer/>
+            <Footer />
         </main>
     )
 }
