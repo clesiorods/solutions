@@ -9,6 +9,10 @@
   --background-end-rgb: 255, 255, 255;
 
   --primary-gradient: -webkit-linear-gradient(45deg, #af7cff, #4332c7);
+
+  --loading-gradient-light: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 60%),  #3b3b4833;
+
+  --loading-gradient-dark: linear-gradient(100deg, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, 0) 60%), red;
 }
 
 
