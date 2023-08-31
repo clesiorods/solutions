@@ -4,7 +4,6 @@ import "./style.css";
 import Logo from "@/assets/logo_solutions.png";
 import Link from "next/link";
 import PinSideBar from "../PinSideBar";
-import CalcIcoin from "../Icons/IconCalcDual";
 import IconCalcDual from "../Icons/IconCalcDual";
 import IconCalendarDual from "../Icons/IconCalendarDual";
 import IconChatDual from "../Icons/IconChatDual";
@@ -18,8 +17,6 @@ export default function SideBar() {
 
     return (
         <>
-            {/* <div className="h-[70px] bg-white w-full absolute dark:bg-card-dark" style={{transition:'.2s all'}} ></div> */}
-
             <nav id="side_bar">
                 <header className="border-b border-dashed border-[#352c5e]" >
                     <Image alt="" src={Logo} className="w-[30px] ml-[2px]" />
