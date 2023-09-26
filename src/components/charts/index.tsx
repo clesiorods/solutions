@@ -78,7 +78,7 @@ export default function Chart() {
             setLoading(1);
             setTimeout(() => {
                 setLoading(0);
-            }, 500)
+            }, 1000)
         };
         window.addEventListener('resize', handleResize);
         return () => {
