@@ -8,7 +8,7 @@ function waitFor(ms: number) {
 
 export default async function Resume() {
 
-    await waitFor(3000);
+    // await waitFor(3000);
 
     return (
         <main className="p-[18px] w-full ml-0 overflow-y-auto">

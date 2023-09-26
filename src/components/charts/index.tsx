@@ -1,11 +1,18 @@
 "use client"
 
+import "./loading.css";
 
-import React from "react";
+import React, { useEffect, useState } from 'react';
 import ReactEcharts from "echarts-for-react";
+import axios from "axios";
+import Card from "../Card";
 
 
 export default function Chart() {
+
+    const [loading, setLoading] = useState(1);
+
+
     const option = {
         tooltip: {
             trigger: 'item'
@@ -25,6 +32,9 @@ export default function Chart() {
                     borderRadius: 4,
                     borderColor: '#fff',
                     borderWidth: 2
+                },
+                animationDelayUpdate: function (idx: any) {
+                    return idx * 500;
                 },
                 label: {
                     show: false,
@@ -51,6 +61,48 @@ export default function Chart() {
         ]
     };
 
+    useEffect(() => {
+        setTimeout(() => {
+            // axios.get('http://localhost:3333/dados-grafico').then((resp) => {
+            //     console.log(resp);
+            //     setLoading(0);
+            // })
+            setLoading(0);
+        }, 2000)
+    }, [])
 
-    return <ReactEcharts style={{height: '100%'}} option={option} />;
+
+
+    useEffect(() => {
+        const handleResize = () => {
+            setLoading(1);
+            setTimeout(() => {
+                setLoading(0);
+            }, 500)
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+
+
+
+
+
+
+
+
+    return (
+        <>
+            {loading ?
+                <div className="h-56 loading" >
+                    <p></p>
+                    <p className="w-1/3"></p>
+                </div>
+                :
+                <ReactEcharts style={{ height: '100%' }} option={option} />
+            }
+        </>)
 }
