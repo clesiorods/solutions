@@ -1,6 +1,6 @@
 article.card {
     border-radius: 0.625rem;
-    padding: 18px 30px;
+    padding: 22px 30px;
     margin-bottom: 19px;
     @apply
     shadow-[0px_0px_20px_0px_rgba(76,87,125,0.04)]

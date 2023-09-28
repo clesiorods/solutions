@@ -1,5 +1,6 @@
 import Card from "@/components/Card"
 import Footer from "@/components/Footer"
+import IconUp from "@/components/Icons/IconUp"
 import Chart from "@/components/charts"
 
 function waitFor(ms: number) {
@@ -17,8 +18,13 @@ export default async function Resume() {
                     <div className="row">
                         <div className="col-md-12">
                             <Card className="h-56" >
-                                <p>Era uma casa muitp engraçada, não tinha teto não tinha nada.</p>
-                                <div className="h-[80%]">
+                                <h4 className="font-[500] text-3xl flex items-center h-[32px]" >
+                                    <div className="subtitle text-lg mt-[7px] mr-1" >R$ </div>
+                                    2.300,00
+                                    <div className="ml-2 bedge bedge-success" ><span className="rotate-90" >{'>'}</span> 2,2%</div>
+                                </h4>
+                                <p className="subtitle text-sm" >Divisão de gastos do mês</p>
+                                <div className="h-[calc(100%-55px)]">
                                     <Chart />
                                 </div>
                             </Card>

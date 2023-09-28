@@ -20,11 +20,6 @@ export const SideBarContext = createContext<IResponsiveSideBar>({} as IResponsiv
 
 export const SideBarProvider = ({ children }: any) => {
 
-
-
-
-
-
     const [sideBarClass, setSideBarClass] = useState("");
     const [fixedSideBar, setFixedSideBar] = useState(false);
     const [hoverSideBar, setHoverSideBar] = useState(false);
@@ -78,13 +73,6 @@ export const SideBarProvider = ({ children }: any) => {
             setFixedSideBar(true);
         }
     }, [])
-
-
-
-
-
-
-
 
 
     return (

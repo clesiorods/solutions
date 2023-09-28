@@ -1,8 +1,38 @@
+ div.loading_circle {
+  margin-top: 12px;
+  margin-left: -50%;
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  height: 106px;
+  width: 106px;
+  border-radius: 50%;
+  /* animation-delay: .05s; */
+}
 
+div.loading_circle_insert {
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+}
 
-.loading .image,
-.loading p,
-.loading .description {
+div.legend {
+  height: 18px;
+  width: 36px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  animation-delay: .4s;
+}
+
+div.legend_text {
+  height: 10px;
+  width: 66px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  animation-delay: .4s;
+}
+
+.loading {
   background: var(--loading-gradient-light);
   background-size: 200% 100%;
   background-position-x: 180%;
@@ -13,17 +43,4 @@
   to {
     background-position-x: -20%;
   }
-}
-
-.loading p {
-  min-height: 1.05rem;
-  border-radius: 4px;
-  animation-delay: .05s;
-  margin-bottom: 8px;
-}
-
-.loading .description {
-  min-height: 4rem;
-  border-radius: 4px;
-  animation-delay: .06s;
 }

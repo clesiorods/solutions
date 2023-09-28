@@ -113,6 +113,25 @@ a.primary:hover {
 }
 
 
+.subtitle {
+  color: #B5B5C3;
+  @apply
+  dark:text-[#575757]
+}
+
+.bedge {
+  border-radius: 5px;
+  padding: 0px 10px;
+  font-size: 15px;
+}
+
+.bedge-success {
+  background: #00800047;
+  color: green;
+  line-height: 1.5;
+}
+
+
 .text-brand {
     background: var(--primary-gradient);
     -webkit-background-clip: text;
