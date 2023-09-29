@@ -14,7 +14,7 @@ export default async function Resume() {
     return (
         <main className="p-[18px] w-full ml-0 overflow-y-auto">
             <div className="row">
-                <div className="col-md-12 col-xl-6">
+                <div className="col-md-12 col-lg-6 col-xxl-4">
                     <div className="row">
                         <div className="col-md-12">
                             <Card className="h-56" >
@@ -41,7 +41,7 @@ export default async function Resume() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-12 col-xl-6">
+                <div className="col-md-12 col-lg-6 col-xxl-8">
                     <Card className="h-[468px]" >
                         <p>Neste parágrafo terá algum alista de contas, ou uma lista de saldos baseados na situação financeira dos mês.</p>
                         <br />
