@@ -1,39 +1,31 @@
-import { PrismaClient } from '@prisma/client';
-import express from 'express'
-import { Router, Request, Response } from 'express';
+import * as dotenv from 'dotenv' // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
+dotenv.config();
 
-const app = express()
-const route = Router()
+import express from 'express';
+// import "reflect-metadata";
+import router from './routes';
+import cors from 'cors';
 
-app.use(express.json())
+const app = express();
+const PORT = process.env.APLICATION_PORT || 3344;
 
-const prisma = new PrismaClient();
 
-route.get('/', (req: Request, res: Response) => {
-    res.json({ message: 'Wow! My first project in TypeScript!!!' })
-})
+const allowedOrigins = ['http://localhost:3000', 'https://recad.flystart.com.br'];
 
-route.get('/user', async (req: Request, res: Response) => {
-    const user = await prisma.user.findUnique({where:{id: 1}})
-    return res.send(user);
-})
+const options: cors.CorsOptions = {
+  origin: allowedOrigins
+};
+app.use(cors(options));
 
-route.post('/user', async (req: Request, res: Response) => {
-    const user = await prisma.user.create({
-        data: {
-            name: "Clesio",
-            email: "clesiobeta@ig.com"
-        }
-    })
-    return res.send(user);
-})
+app.use(express.json());
+app.use(router);
 
-app.use(route)
 
-const PORT = 3030
 
-// console.clear();
+
+
 app.listen(PORT, () => {
-    console.clear();
-    console.log(`Server running on port ${PORT}`)
+  console.clear();
+  console.log(`==========================================`);
+  console.log(`...Servidor rodando na porta ${PORT}...`);
 });
