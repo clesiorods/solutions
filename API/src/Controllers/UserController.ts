@@ -29,9 +29,9 @@ export class UserController {
         // const is_admin = await new AuthenticationService().isAdmin(`${req.headers.authorization}`);
         // if (is_admin) {
             try {
-                const { email, name, password, is_admin } = req.body;
+                const body = req.body;
                 const createUserUseCase = new UserService();
-                const user = await createUserUseCase.create({ email, name, password, is_admin });
+                const user = await createUserUseCase.create(body);
 
                 return res.status(200).json(user);
 

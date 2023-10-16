@@ -3,6 +3,11 @@ import { User } from "../entities/User";
 import dayjs from "dayjs";
 import e from "express";
 import { PrismaClient } from "@prisma/client";
+import { z } from "zod";
+import { CreateUserProps, createUserSchema } from "../schemas/user.schemas";
+
+
+// import { createUserSchema } from '../'
 
 interface IUser {
     email: string;
@@ -21,7 +26,9 @@ interface IEditUser {
 
 export class UserService {
 
+
     prisma = new PrismaClient()
+
 
     async findAll() {
         const users = await this.prisma.user.findMany({ select: { id: true, name: true, email: true, is_admin: true } });
@@ -41,24 +48,25 @@ export class UserService {
     }
 
 
-    async create(user: IUser) {
-        if (!user.email || !user.name || !user.password) {
-            throw new Error('Não foi possível criar um usuário');
-        }
+    async create(props: CreateUserProps) {
 
-        const userExist = await this.prisma.user.findUnique({ where: { email: user.email } });
+        const data = createUserSchema.parse(props);
+        if (data.password !== data.passwordConfirmation ) {
+            throw new Error('Não foi realizar esta operação. As senhas não coicidem.');
+        }
+        const userExist = await this.prisma.user.findUnique({ where: { email: data.email } });
         if (userExist) {
             throw new Error('Não foi realizar esta operação. Usuário já cadastrado.');
         }
 
-        const passwordHash = await hash(user.password, 8);
+        const passwordHash = await hash(data.password, 8);
 
         let newUser = await this.prisma.user.create({
             data: {
-                name: user.name,
-                email: user.email,
+                name: data.name,
+                email: data.email,
                 password: passwordHash,
-                is_admin: user.is_admin ? Number(user.is_admin) : 0,
+                // is_admin: data.is_admin ? Number(data.is_admin) : 0,
             }
         });
 

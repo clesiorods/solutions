@@ -2,6 +2,7 @@ import { Router } from "express";
 import AuthenticationController from "../Controllers/AuthenticationController";
 import { UserController } from "../Controllers/UserController";
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
+import { ensureAdmin } from "../middlewares/ensureAdmin";
 
 const router = Router();
 const userController = new UserController();
@@ -15,7 +16,7 @@ router.post('/login', authenticationController.authenticate);
 
 
 //////////////// RORAS DE USUÁRIO //////////////////////
-router.get('/user', ensureAuthenticated, userController.findAll);
+router.get('/user', ensureAdmin, userController.findAll);
 router.get('/user/:id', ensureAuthenticated, userController.findOne);
 // router.put('/user/:id', ensureAuthenticated, userController.update);
 // router.delete('/user/:id', ensureAuthenticated, userController.delete);
