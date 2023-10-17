@@ -5,14 +5,12 @@ import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { StackTypes } from '../routes';
 
 export default function Wellcome() {
-  const navigation = useNavigation<StackTypes>();
-
 
   const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
     <Pressable
       className="bg-indigo-50 dark:bg-indigo-950 flex-1 justify-center items-center"
-      onPress={() => {toggleColorScheme(), navigation.navigate('Login') }}
+      onPress={() => {toggleColorScheme()}}
     >
       <Text
         selectable={false}
