@@ -5,13 +5,16 @@ import AuthenticationService from "../services/AuthenticationService";
 export default class AuthenticationController {
 
     async authenticate(req: Request, res: Response) {
+        console.log('Tentando logar...');
         try {
             const { email, password } = req.body;
             const authenticationService = new AuthenticationService();
             const token = await authenticationService.authenticate({ email, password });
+            console.log('Deu certo');
             return res.status(200).json(token);
 
         } catch (error: any) {
+            console.log('Deu errado');
             return res.status(400).json(error.message);
         }
     }
