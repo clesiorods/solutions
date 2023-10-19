@@ -3,6 +3,8 @@ import "./../css/globals.css";
 import "./../css/grid.css";
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const poppins = Poppins({ subsets: ["latin"], weight: ['400', '500', '600', '700'] });
 
@@ -21,7 +23,11 @@ export default function RootLayout({
     <html lang="tp-BR" suppressHydrationWarning >
       <body className={`${poppins.className}`} >
         <ThemeProvider>
-            {children}
+          <ToastContainer 
+            position="top-right" 
+            theme="colored"
+          />
+          {children}
         </ThemeProvider>
       </body>
     </html>

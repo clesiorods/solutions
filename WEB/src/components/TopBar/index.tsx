@@ -9,16 +9,19 @@ export default async function TopBar() {
 
     const session = await getServerSession(nextAuthOptions)
 
-    return(
+    return (
         <nav id="top_bar">
             <ul id="ul_module_sections" >
                 <li> <Link href={'/app/financeiro/'} className="active" >Dashboard</Link></li>
                 <li> <Link href={'/app/financeiro/relatorios'} >Relatórios</Link></li>
                 <li> <Link href={'/app/financeiro/configuracoes'} >Configurações</Link></li>
             </ul>
-            <ThemeSwitcher/>
-            <div>Olá, {session?.user.name}</div>
-            <ButtonLogout/>
+
+            <div className="flex gap-2">
+                <ThemeSwitcher />
+                <div>Olá, {session?.user.name}</div>
+                <ButtonLogout />
+            </div>
         </nav>
     );
 }

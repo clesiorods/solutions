@@ -4,6 +4,8 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import { toast } from "react-toastify";
+
 
 export default function FormLogin() {
 
@@ -26,6 +28,7 @@ export default function FormLogin() {
         if(result?.error) {
             if(result.error == "CredentialsSignin") {
                 setPasswordError('active_error');
+                toast.error("Usuário ou senha incorreto!");
             }
             return
         } else {
