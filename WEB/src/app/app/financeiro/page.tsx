@@ -1,7 +1,9 @@
+import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route"
 import Card from "@/components/Card"
 import Footer from "@/components/Footer"
 import IconUp from "@/components/Icons/IconUp"
 import Chart from "@/components/charts"
+import { getServerSession } from "next-auth"
 
 function waitFor(ms: number) {
     return new Promise<void>((resolve) => setTimeout(() => resolve(), ms))
@@ -9,6 +11,7 @@ function waitFor(ms: number) {
 
 export default async function Resume() {
 
+    const session = await getServerSession(nextAuthOptions)
     // await waitFor(3000);
 
     return (
@@ -33,6 +36,7 @@ export default async function Resume() {
                     <div className="row">
                         <div className="col-md-6">
                             <Card className="h-56" >
+                                Olá, {session?.user.name}
                             </Card>
                         </div>
                         <div className="col-md-6">

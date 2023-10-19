@@ -1,9 +1,14 @@
 import Link from "next/link";
 import ThemeSwitcher from "../ThemeSwither";
 import "./style.css";
+import { getServerSession } from "next-auth"
+import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route";
+import ButtonLogout from "../ButtonLogout";
 
+export default async function TopBar() {
 
-export default function TopBar() {
+    const session = await getServerSession(nextAuthOptions)
+
     return(
         <nav id="top_bar">
             <ul id="ul_module_sections" >
@@ -12,6 +17,8 @@ export default function TopBar() {
                 <li> <Link href={'/app/financeiro/configuracoes'} >Configurações</Link></li>
             </ul>
             <ThemeSwitcher/>
+            <div>Olá, {session?.user.name}</div>
+            <ButtonLogout/>
         </nav>
     );
 }

@@ -13,22 +13,13 @@ export default async function Layout({
 }) {
 
   const session = await getServerSession(nextAuthOptions)
-  if(!session) {
-    redirect('/login')
+  if (session) {
+    redirect('/app/financeiro')
   }
 
   return (
-    <NextAuthSessionProvider>
-      <SideBarProvider>
-        <div className="flex h-screen w-screen overflow-hidden" >
-          <SideBar />
-          <div className="flex flex-col w-full">
-            <TopBar />
-            {children}
-            {/* <Footer /> */}
-          </div>
-        </div>
-      </SideBarProvider>
-    </NextAuthSessionProvider>
+    <div>
+      { children }
+    </div>
   );
 }
