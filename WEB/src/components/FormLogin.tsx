@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
 
@@ -9,26 +9,28 @@ export default function FormLogin() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');    
 
     const router = useRouter();
 
     const handleSubmit = async (e: any) => {
         e.preventDefault()
-        
+        setPasswordError('');
+
         const result = await signIn('credentials', {
             email,
             password,
             redirect: false
         })
-
-        console.log('aqui', result);
-
+        
         if(result?.error) {
-            console.log(result);
+            if(result.error == "CredentialsSignin") {
+                setPasswordError('active_error');
+            }
             return
+        } else {
+            router.replace('/app/financeiro')
         }
-
-        router.replace('/app/financeiro')
     }
 
     return (
@@ -53,15 +55,15 @@ export default function FormLogin() {
                 <input
                     type="password"
                     placeholder="Informe sua senha"
-                    className="primary"
+                    className={`primary`}
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {setPassword(e.target.value), setPasswordError('')}}
                 />
             </div>
 
             <div className="form-group mt-4">
                 {/* <Link href={"/app/financeiro"}> */}
-                    <button className="primary w-full" type="submit" style={{background:'linear-gradient(106deg, rgb(71 36 164) 0%, rgb(102 58 193) 51%, rgb(139 33 202) 100%)'}} >Entrar</button>
+                    <button className={`primary w-full ${passwordError}`} type="submit" style={{background:'linear-gradient(106deg, rgb(71 36 164) 0%, rgb(102 58 193) 51%, rgb(139 33 202) 100%)'}} >Entrar</button>
                 {/* </Link> */}
             </div>
 

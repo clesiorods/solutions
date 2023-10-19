@@ -14,9 +14,11 @@ import Link from "next/link";
 import Icon from "@/components/Icon";
 import ThemeSwitcher from "@/components/ThemeSwither";
 import FormLogin from "@/components/FormLogin";
-
+import './style.css';
 
 export default function Login() {
+
+    
     return (
         <div className="fixed h-screen w-screen flex justify-end bg-slate-700">
 

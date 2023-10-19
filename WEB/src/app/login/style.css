@@ -1,0 +1,13 @@
+.active_error {
+  animation: treme 0.12s;
+  animation-iteration-count: 4;
+  //border: 1px solid red !important;
+}
+
+@keyframes treme {
+  0% {margin-left: 0;}
+  25% {margin-left: 5px;}
+  50% {margin-left: 0;}
+  75% {margin-left: -5px;}
+  100% {margin-left: 0;}
+}
