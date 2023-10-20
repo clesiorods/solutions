@@ -1,5 +1,4 @@
 import { compare, hash } from "bcryptjs";
-import { User } from "../entities/User";
 import dayjs from "dayjs";
 import e from "express";
 import { PrismaClient } from "@prisma/client";

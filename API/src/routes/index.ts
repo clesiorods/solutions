@@ -10,6 +10,13 @@ const authenticationController = new AuthenticationController();
 
 
 //////////////// RORAS DE TESTE DE AUTENTICAÇÃO //////////////////////
+router.get('/', (req, res) => {
+    return res.json({status:'200', message:'Está tudo certo!'});
+});
+
+
+
+//////////////// RORAS DE TESTE DE AUTENTICAÇÃO //////////////////////
 router.post('/user', userController.create);
 router.post('/login', authenticationController.authenticate);
 // router.post('/refresh-token', authenticationController.useRefreshToken);

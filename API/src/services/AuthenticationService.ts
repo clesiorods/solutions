@@ -1,7 +1,6 @@
 import { compare } from "bcryptjs";
 import dayjs from "dayjs";
 import { decode, sign, verify } from "jsonwebtoken";
-import { User } from "../entities/User";
 import { PrismaClient } from "@prisma/client";
 
 interface IRequest {
