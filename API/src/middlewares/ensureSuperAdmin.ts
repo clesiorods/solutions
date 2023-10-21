@@ -1,11 +1,11 @@
+import { PrismaClient } from "@prisma/client";
 import { NextFunction, Request, Response } from "express";
 import { decode, verify } from "jsonwebtoken";
 
 
-export function ensureAuthenticated(req: Request, res: Response, next: NextFunction) {
+export async function ensureSuperAdmin(req: Request, res: Response, next: NextFunction) {
 
     const authToken = req.headers.authorization;
-
     if (!authToken) {
         return res.status(401).json({
             message: "Token is missing"
@@ -16,6 +16,9 @@ export function ensureAuthenticated(req: Request, res: Response, next: NextFunct
 
     try {
         verify(token, `${process.env.TOKEN_KEY}`);
+
+        // VERIFICANDO SE ESTE É UM USUÁRIO ADMINISTRADOR
+        const prisma = new PrismaClient();
         const data = decode(token);
         if (!data) {
             return res.status(401).json({
@@ -25,12 +28,19 @@ export function ensureAuthenticated(req: Request, res: Response, next: NextFunct
         const id = Number(data?.sub);
         if (!id) {
             return res.status(401).json({
-                message: "Iser is missing"
+                message: "Invalid token"
             })
         }
-        res.locals.id_user = id;
-
-        return next();
+        const user = await prisma.user.findUniqueOrThrow({ where: { id } })
+        if (user.is_super_admin) {
+            res.locals.id_user = id;
+            return next();
+        } else {
+            return res.status(401).json({
+                message: "You are not super admin"
+            })
+        }
+        
 
     } catch (error) {
         return res.status(401).json({

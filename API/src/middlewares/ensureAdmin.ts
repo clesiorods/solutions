@@ -33,6 +33,7 @@ export async function ensureAdmin(req: Request, res: Response, next: NextFunctio
         }
         const user = await prisma.user.findUniqueOrThrow({ where: { id } })
         if (user.is_admin) {
+            res.locals.id_user = id;
             return next();
         } else {
             return res.status(401).json({

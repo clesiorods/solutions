@@ -11,21 +11,46 @@ datasource db {
 }
 
 model User {
-  id             Int      @id @unique @default(autoincrement())
+  id             Int       @id @unique @default(autoincrement())
   name           String?
-  email          String   @unique
-  password       String   @default("")
-  is_super_admin Int      @default(0)
-  is_admin       Int      @default(0)
-  created_at     DateTime @default(now())
-  updated_at     DateTime @updatedAt
+  email          String    @unique
+  password       String    @default("")
+  is_admin       Int       @default(0)
+  is_super_admin Int       @default(0)
   posts          Note[]
+  created_at     DateTime  @default(now())
+  created_by     Int?
+  updated_at     DateTime  @updatedAt
+  updated_by     Int?
+  deleted_at     DateTime?
+  deleted_by     Int?
 }
 
 model Note {
-  id      Int     @id @default(autoincrement())
-  title   String
-  content String?
-  userId  Int
-  author  User    @relation(fields: [userId], references: [id])
+  id         Int       @id @default(autoincrement())
+  title      String
+  content    String?
+  userId     Int
+  author     User      @relation(fields: [userId], references: [id])
+  created_at DateTime  @default(now())
+  created_by Int?
+  updated_at DateTime  @updatedAt
+  updated_by Int?
+  deleted_at DateTime?
+  deleted_by Int?
+}
+
+model Module {
+  id          Int       @id @default(autoincrement())
+  group       String
+  description String
+  icon        String    @default("")
+  location    String    @default("")
+  order       Int       @default(0)
+  created_at  DateTime  @default(now())
+  created_by  Int?
+  updated_at  DateTime  @updatedAt
+  updated_by  Int?
+  deleted_at  DateTime?
+  deleted_by  Int?
 }

@@ -11,22 +11,21 @@ interface IRequest {
 
 export default class AuthenticationService {
 
+    
     prisma = new PrismaClient()
 
-    async authenticate({ email, password }: IRequest) {
 
+    async authenticate({ email, password }: IRequest) {
         const user = await this.prisma.user.findUniqueOrThrow({ where: { email: email } })
         if (!user) {
             throw new Error("Usuário ou senha incorreta");
         }
         const passwordMatch = await compare(password, user.password);
-        // const passwordMatch = 1;
 
         if (!passwordMatch) {
             throw new Error("Usuário ou senha incorreta. Tente novamente");
         }
         const token = await this.newToken(Number(user.id));
-        // const newRefreshToken = await this.newRefreshToken(user.id);
 
         return {
             token,
