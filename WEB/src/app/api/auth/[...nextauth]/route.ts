@@ -11,7 +11,7 @@ const nextAuthOptions: NextAuthOptions = {
             },
 
             async authorize(credentials, req) {
-                const response = await fetch('http://localhost:3344/login',{
+                const response = await fetch(`${process.env.API_URL}/login`,{
                     method:'POST',
                     headers: {
                         'Content-type': 'application/json'

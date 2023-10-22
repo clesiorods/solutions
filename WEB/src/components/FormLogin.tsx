@@ -29,6 +29,8 @@ export default function FormLogin() {
             if(result.error == "CredentialsSignin") {
                 setPasswordError('active_error');
                 toast.error("Usuário ou senha incorreto!");
+            } else {
+                toast.error("Algo de inesperado aconteceu. Entre em contato com a equipe de suporte.");
             }
             return
         } else {

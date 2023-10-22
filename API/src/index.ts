@@ -12,12 +12,12 @@ const app = express();
 const PORT = process.env.PORT || 50644;
 
 
-// const allowedOrigins = ['http://localhost:3000', 'https://recad.flystart.com.br'];
-// const options: cors.CorsOptions = {
-//   origin: allowedOrigins
-// };
-// app.use(cors(options));
-app.options('*', cors())
+const allowedOrigins = ['http://localhost:3000', 'https://recad.flystart.com.br'];
+const options: cors.CorsOptions = {
+  origin: allowedOrigins
+};
+app.use(cors(options));
+// app.options('*', cors())
 app.use(express.json());
 app.use(router);
 
