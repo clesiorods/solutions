@@ -11,7 +11,7 @@ const nextAuthOptions: NextAuthOptions = {
             },
 
             async authorize(credentials, req) {
-                const response = await fetch(`${process.env.API_URL}/login`,{
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/login`,{
                     method:'POST',
                     headers: {
                         'Content-type': 'application/json'
@@ -23,7 +23,7 @@ const nextAuthOptions: NextAuthOptions = {
                 });
 
                 const user = await response.json();
-                console.log(user);
+                // console.log(process.env.API_URL);
 
                 if(user && response.ok) {
                     return user
@@ -41,9 +41,9 @@ const nextAuthOptions: NextAuthOptions = {
      callbacks: {
         async jwt({token, user}) {
             user && (token.user = user)
-            return token
+            return {...token, ...user}
         },
-        async session({session, token}) {
+        async session({session, token, user}) {
             session = token as any
             return session
         }

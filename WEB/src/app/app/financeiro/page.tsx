@@ -1,7 +1,7 @@
+
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route"
 import Card from "@/components/Card"
 import Footer from "@/components/Footer"
-import IconUp from "@/components/Icons/IconUp"
 import Chart from "@/components/charts"
 import { getServerSession } from "next-auth"
 
@@ -11,7 +11,7 @@ function waitFor(ms: number) {
 
 
 async function getData() {
-    const data = await fetch(`${process.env.API_URL}/module`, {
+    const data = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/module`, {
         headers: {},
         cache: 'no-store'
     });
@@ -24,7 +24,7 @@ export default async function Resume() {
     // await waitFor(3000);
 
     const session = await getServerSession(nextAuthOptions)
-    // console.log(session?.user);
+    // console.log('token', session?.token);
 
     const data = await getData();
     // console.log(data);
