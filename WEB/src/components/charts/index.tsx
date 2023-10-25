@@ -4,8 +4,6 @@ import "./loading.css";
 
 import React, { useEffect, useState } from 'react';
 import ReactEcharts from "echarts-for-react";
-import axios from "axios";
-import Card from "../Card";
 import { useTheme } from "next-themes";
 
 

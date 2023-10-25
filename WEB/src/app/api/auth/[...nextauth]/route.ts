@@ -23,6 +23,7 @@ const nextAuthOptions: NextAuthOptions = {
                 });
 
                 const user = await response.json();
+                console.log(user);
 
                 if(user && response.ok) {
                     return user
@@ -43,7 +44,7 @@ const nextAuthOptions: NextAuthOptions = {
             return token
         },
         async session({session, token}) {
-            session = token.user as any
+            session = token as any
             return session
         }
      }

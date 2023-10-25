@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Icon from "../Icon";
 import "./style.css";
 import Logo from "@/assets/logo_solutions.png";
 import Link from "next/link";

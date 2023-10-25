@@ -9,10 +9,25 @@ function waitFor(ms: number) {
     return new Promise<void>((resolve) => setTimeout(() => resolve(), ms))
 }
 
+
+async function getData() {
+    const data = await fetch(`${process.env.API_URL}/module`, {
+        headers: {},
+        cache: 'no-store'
+    });
+    return data.json();
+}
+
+
+
 export default async function Resume() {
+    // await waitFor(3000);
 
     const session = await getServerSession(nextAuthOptions)
-    // await waitFor(3000);
+    // console.log(session?.user);
+
+    const data = await getData();
+    // console.log(data);
 
     return (
         <main className="p-[18px] w-full ml-0 overflow-y-auto">
@@ -27,6 +42,7 @@ export default async function Resume() {
                                     <div className="ml-2 bedge bedge-success" ><span className="rotate-90" >{'>'}</span> 2,2%</div>
                                 </h4>
                                 <p className="subtitle text-sm" >Divisão de gastos do mês</p>
+                                <p>{data.message}</p>
                                 <div className="h-[calc(100%-55px)]">
                                     <Chart />
                                 </div>
