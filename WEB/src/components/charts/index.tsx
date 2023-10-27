@@ -6,7 +6,7 @@ import React, { useEffect, useState } from 'react';
 import ReactEcharts from "echarts-for-react";
 import { useTheme } from "next-themes";
 import { useSession } from "next-auth/react";
-import { getData } from "@/functions/requests";
+import { getData } from "@/functions/serverRequest";
 
 
 export default function Chart() {
@@ -19,7 +19,7 @@ export default function Chart() {
         const data = await getData('module');
         console.log(data);
     }
-    teste();
+    // teste();
 
     
     const option = {

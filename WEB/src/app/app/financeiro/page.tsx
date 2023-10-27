@@ -3,7 +3,9 @@ import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route"
 import Card from "@/components/Card"
 import Footer from "@/components/Footer"
 import Chart from "@/components/charts"
+import { ServerRequest } from "@/functions/serverRequest"
 import { getServerSession } from "next-auth"
+
 
 function waitFor(ms: number) {
     return new Promise<void>((resolve) => setTimeout(() => resolve(), ms))
@@ -14,9 +16,10 @@ export default async function Resume() {
     // await waitFor(3000);
 
     const session = await getServerSession(nextAuthOptions)
-    // console.log('token', session?.token);
+    
+    const clientRequest = new ServerRequest();
+    console.log(await clientRequest.getData('module'));
 
-    console.log('aaaaaaaaaaa', process.env.NEXT_PUBLIC_API_URL);
 
     return (
         <main className="p-[18px] w-full ml-0 overflow-y-auto">
