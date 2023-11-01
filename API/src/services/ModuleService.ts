@@ -29,7 +29,7 @@ export class ModuleService {
 
 
     async findAll() {
-        const modules = await this.prisma.module.findMany({ where: { deleted_at: null } });
+        const modules = await this.prisma.module.findMany({ where: { deleted_at: null }, orderBy: {order:"asc"} });
         return modules;
     }
 }

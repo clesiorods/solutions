@@ -26,6 +26,21 @@ model User {
   deleted_by     Int?
 }
 
+model Module {
+  id          Int       @id @default(autoincrement())
+  description String
+  group       String
+  icon        String    @default("")
+  path        String    @default("")
+  order       Int       @default(0)
+  created_at  DateTime  @default(now())
+  created_by  Int?
+  updated_at  DateTime  @updatedAt
+  updated_by  Int?
+  deleted_at  DateTime?
+  deleted_by  Int?
+}
+
 model Note {
   id         Int       @id @default(autoincrement())
   title      String
@@ -38,19 +53,4 @@ model Note {
   updated_by Int?
   deleted_at DateTime?
   deleted_by Int?
-}
-
-model Module {
-  id          Int       @id @default(autoincrement())
-  group       String
-  description String
-  icon        String    @default("")
-  location    String    @default("")
-  order       Int       @default(0)
-  created_at  DateTime  @default(now())
-  created_by  Int?
-  updated_at  DateTime  @updatedAt
-  updated_by  Int?
-  deleted_at  DateTime?
-  deleted_by  Int?
 }

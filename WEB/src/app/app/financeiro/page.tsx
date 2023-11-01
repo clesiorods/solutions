@@ -1,9 +1,8 @@
 
 import { nextAuthOptions } from "@/app/api/auth/[...nextauth]/route"
 import Card from "@/components/Card"
+import CircleChart from "@/components/CircleChart"
 import Footer from "@/components/Footer"
-import Chart from "@/components/charts"
-import { ServerRequest } from "@/functions/serverRequest"
 import { getServerSession } from "next-auth"
 
 
@@ -16,10 +15,6 @@ export default async function Resume() {
     // await waitFor(3000);
 
     const session = await getServerSession(nextAuthOptions)
-    
-    const clientRequest = new ServerRequest();
-    console.log(await clientRequest.getData('module'));
-
 
     return (
         <main className="p-[18px] w-full ml-0 overflow-y-auto">
@@ -34,9 +29,8 @@ export default async function Resume() {
                                     <div className="ml-2 bedge bedge-success" ><span className="rotate-90" >{'>'}</span> 2,2%</div>
                                 </h4>
                                 <p className="subtitle text-sm" >Divisão de gastos do mês</p>
-                                <p>{process.env.NEXT_PUBLIC_API_URL}</p>
                                 <div className="h-[calc(100%-55px)]">
-                                    <Chart />
+                                    <CircleChart />
                                 </div>
                             </Card>
                         </div>

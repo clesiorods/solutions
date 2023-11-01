@@ -6,20 +6,13 @@ import React, { useEffect, useState } from 'react';
 import ReactEcharts from "echarts-for-react";
 import { useTheme } from "next-themes";
 import { useSession } from "next-auth/react";
-import { getData } from "@/functions/serverRequest";
+import { ClientRequest } from "@/functions/clientRequest";
 
 
-export default function Chart() {
+export default function CircleChart() {
 
     const [loading, setLoading] = useState(1);
     const { theme } = useTheme();
-
-
-    async function teste() {
-        const data = await getData('module');
-        console.log(data);
-    }
-    // teste();
 
     
     const option = {
@@ -81,15 +74,27 @@ export default function Chart() {
         }, 1000)
     };
 
+
+    const teste = async () => {
+        const clientRequest = new ClientRequest();
+        const resp = await clientRequest.get('module');
+        console.log(resp);
+    }
+
+
+
     useEffect(() => {
         handleResize();
-
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, [theme])
 
+
+    useEffect(() => {
+        teste()
+    }, [])
 
     return (
         <>

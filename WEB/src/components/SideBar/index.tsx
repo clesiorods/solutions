@@ -10,9 +10,15 @@ import IconChackListDual from "../Icons/IconCheckListDual";
 import IconPeopleDual from "../Icons/IconPeopleDual";
 import IconSaleTagDual from "../Icons/IconSaleTagDual";
 import IconWalletDual from "../Icons/IconWalletDual";
+import { ServerRequest } from "@/functions/serverRequest";
+import { IModules } from "@/interfaces";
 
 
-export default function SideBar() {
+export default async function SideBar() {
+
+    const clientRequest = new ServerRequest();
+    const modules = await clientRequest.get<IModules[]>('module');
+
 
     return (
         <>
@@ -62,12 +68,24 @@ export default function SideBar() {
                             <span className='nav_text'> Chat </span>
                         </Link>
                     </li>
+                    {/* {modules.map((module) => {
+                        if (module.group == 'module') {
+                            return (
+                                <li key={module.id} className="">
+                                    <Link href={module.path} className="">
+                                        <IconChatDual className="nav_icon" />
+                                        <span className='nav_text'> {module.description} </span>
+                                    </Link>
+                                </li>
+                            );
+                        }
+                    })} */}
                 </ul>
 
                 <h6 className="mt-4 ml-[32px] text-[10px] opacity-50 header_group">APPS</h6>
 
                 <ul id="ul_modules">
-                    <li className="">
+                    {/* <li className="">
                         <Link href={'/'} className="">
                             <IconCalcDual className="nav_icon" />
                             <span className='nav_text'> Calculadora </span>
@@ -79,7 +97,7 @@ export default function SideBar() {
                             <IconCalendarDual className="nav_icon" />
                             <span className='nav_text'> Calendário </span>
                         </Link>
-                    </li>
+                    </li> */}
                 </ul>
 
             </nav>
