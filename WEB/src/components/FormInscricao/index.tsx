@@ -1,20 +1,20 @@
 "use client"
 
-import axios from "axios";
+// import axios from "axios";
 import { useState } from "react";
 
 export default function FormInscricao() {
 
     const [email, setEmail] = useState('');
     const handleSubmit = async (e:any) => {
-        e.preventDefault()
-        axios.post('/api/inscritos', {
-            email: email
-        }).then(() => {
-            alert(`Email ${email} cadastrado com sucesso!`)
-        }).catch(() => {
-            alert(`Algo de errado aconteceu. Não foi possível realizar a operação`)
-        })
+        // e.preventDefault()
+        // axios.post('/api/inscritos', {
+        //     email: email
+        // }).then(() => {
+        //     alert(`Email ${email} cadastrado com sucesso!`)
+        // }).catch(() => {
+        //     alert(`Algo de errado aconteceu. Não foi possível realizar a operação`)
+        // })
     }
 
     return (
