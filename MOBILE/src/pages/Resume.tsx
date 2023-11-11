@@ -23,7 +23,7 @@ export default function Resume() {
       <View>
         <Text className='text-lg font-bold' >Gastos do Mês</Text>
         <View className='flex flex-row justify-between' >
-          <Text className='text-3xl font-bold' >R$ 1.809,35</Text>
+          <Text className='text-3xl font-bold text-green-600' >R$ 1.809,35</Text>
           <SimpleLineIcons name="action-redo" size={24} color="black" />
         </View>
       </View>
