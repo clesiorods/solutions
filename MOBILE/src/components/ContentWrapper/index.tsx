@@ -4,16 +4,16 @@ import { useColorScheme } from 'nativewind';
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 // import { StackTypes } from '../routes';
 
-type ContentProps = {
+type CardProps = {
     children: React.ReactNode;
 }
 
-export default function ContentWrapper(props: ContentProps) {
+export default function ContentWrapper(props: CardProps) {
 
     return (
         <SafeAreaView style={styles.contentWrapper} >
             <View style={styles.content} className='flex-1' >
-                <ScrollView style={{ marginBottom: -12, overflow: 'hidden' }}>
+                <ScrollView style={{ marginBottom: 1}}>
                     {props.children}
                 </ScrollView>
             </View>
@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgb(0, 0, 0)',
     },
     content: {
-        padding: 19,
+        // padding: 19,
         paddingTop: 38,
-        backgroundColor: 'white',
-        borderBottomLeftRadius: 30,
-        borderBottomRightRadius: 30,
+        backgroundColor: 'rgb(248, 248, 248)',
+        borderBottomLeftRadius: 29,
+        borderBottomRightRadius: 29,
     },
     backPlaceNavBar: {
         height: 60,
