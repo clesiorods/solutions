@@ -1,18 +1,23 @@
 import { NativeStackNavigationProp, createNativeStackNavigator } from "@react-navigation/native-stack"
-import Wellcome from "../pages/Wellcome";
 import Login from "../pages/Login";
 import Resume from "../pages/Resume";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { CustomTabBar } from "../components/CustomTabBar";
+import Reports from "../pages/Reports";
+import Configurations from "../pages/Configurations";
+import Account from "../pages/Account";
 
-const Stack = createNativeStackNavigator();
+// const Stack = createNativeStackNavigator();
 
-// type StackNavigation = {
-//     Wellcome: undefined;
-//     Login: undefined;
-// }
+type StackNavigation = {
+    Login: undefined;
+    Resume: undefined;
+    Reposts: undefined;
+    Configurations: undefined;
+    Account: undefined;
+}
 
-// export type StackTypes = NativeStackNavigationProp<StackNavigation>
+export type StackTypes = NativeStackNavigationProp<StackNavigation>
 
 const Tab = createBottomTabNavigator();
 
@@ -34,21 +39,23 @@ export default function Routes() {
             <Tab.Screen
                 name="Login"
                 component={Login}
-                options={{ tabBarIcon: 'compare-arrows' }}
             />
             <Tab.Screen
-                name="Wellcome"
-                component={Wellcome}
-                options={{
-                    tabBarIcon: 'attach-money'
-                }}
-            />
-            <Tab.Screen
-                name="Home"
+                name="Resume"
                 component={Resume}
-                options={{
-                    tabBarIcon: 'storefront'
-                }}
+            />
+            <Tab.Screen
+                name="Reposts"
+                
+                component={Reports}
+            />
+            <Tab.Screen
+                name="Configurations"
+                component={Configurations}
+            />
+            <Tab.Screen
+                name="Account"
+                component={Account}
             />
         </Tab.Navigator>
     );

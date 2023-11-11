@@ -1,44 +1,62 @@
 import { View, TouchableOpacity, StyleSheet, Platform, Text } from 'react-native'
-import { MaterialIcons } from '@expo/vector-icons'
+import { SimpleLineIcons } from '@expo/vector-icons'
 
+// PÁGINAS QUE NÃO TERÃO NAVBAR
 const hideTabBar = [0];
 
+// ICONES DA TABBAR DE ACORDO COM SUAS POSIÇÕES
+const arrayIcons:
+  [
+    { icon: 'docs', name: 'Login' },
+    { icon: 'home', name: 'Resumo' },
+    { icon: 'docs', name: 'Relatórios' },
+    { icon: 'equalizer', name: 'Configurações' },
+    { icon: 'user', name: 'Conta' },
+  ] =
+  [
+    { icon: 'docs', name: 'Login' },
+    { icon: 'home', name: 'Resumo' },
+    { icon: 'docs', name: 'Relatórios' },
+    { icon: 'equalizer', name: 'Configurações' },
+    { icon: 'user', name: 'Conta' },
+  ];
 
-export function CustomTabBar({ state, descriptors, navigation }:any) {
-  if(hideTabBar.includes(state.index)) {
-    return(<></>);
+
+export function CustomTabBar({ state, descriptors, navigation }: any) {
+  if (hideTabBar.includes(state.index)) {
+    return (<></>);
   } else {
     return (
       <View style={styles.container}>
         <View style={styles.content}>
-          {state.routes.map((route:any, index:any) => {
+          {state.routes.map((route: any, index: any) => {
 
-            if(hideTabBar.includes(index)) {
-              return(<></>);
+            if (hideTabBar.includes(index)) {
+              return (<></>);
             }
 
             const { options } = descriptors[route.key];
             const isFocused = state.index === index;
-  
+
             const onPress = () => {
               const event = navigation.emit({
                 type: 'tabPress',
                 target: route.key,
                 canPreventDefault: true,
               });
-  
+
               if (!isFocused && !event.defaultPrevented) {
                 navigation.navigate(route.name);
               }
             };
-  
+
             const onLongPress = () => {
               navigation.emit({
                 type: 'tabLongPress',
                 target: route.key,
               });
             };
-  
+
             return (
               <TouchableOpacity
                 key={route.key}
@@ -50,15 +68,16 @@ export function CustomTabBar({ state, descriptors, navigation }:any) {
                 onLongPress={onLongPress}
                 style={styles.buttonTab}
               >
-                <View style={{  alignItems: 'center', padding: 4}}>
-                  <View style={{ padding:3, borderRadius: 99, backgroundColor: isFocused ? "transparent" : "transparent"}}>
-                    <MaterialIcons
-                      name={options.tabBarIcon}
-                      size={26}
+                <View style={{ alignItems: 'center', paddingTop: 2 }}>
+                  <View style={{ padding: 2, borderRadius: 99, backgroundColor: isFocused ? "transparent" : "transparent" }}>
+                    <SimpleLineIcons
+                      name={arrayIcons[index].icon}
+                      size={22}
                       color={isFocused ? '#ffffff' : '#535353'}
                     />
                   </View>
                 </View>
+                <Text style={{ color: isFocused ? '#ffffff' : '#535353', fontSize: 9 }} >{arrayIcons[index].name}</Text>
               </TouchableOpacity>
             );
           })}
@@ -70,29 +89,33 @@ export function CustomTabBar({ state, descriptors, navigation }:any) {
 
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red', 
+    backgroundColor: 'red',
     width: '100%',
   },
-  content:{
-    height:60,
+  content: {
+    height: 60,
     width: '100%',
     marginBottom: Platform.OS === 'ios' ? 0 : 0,
     position: 'absolute',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     bottom: 0,
-    backgroundColor: 'rgb(27, 23, 41)', 
+    borderBottomWidth: .5,
+    borderBottomColor: 'rgba(255, 255, 255, 0.404)',
+    backgroundColor: 'rgb(0, 0, 0)',
     flexDirection: 'row',
     gap: 18,
     elevation: 10,
     shadowOpacity: 0.2,
     shadowRadius: 3.80,
   },
-  buttonTab:{
-    justifyContent: 'center', 
+  buttonTab: {
+    justifyContent: 'center',
     alignItems: 'center',
+    // backgroundColor:'red',
+    minWidth:'18%'
   }
 })

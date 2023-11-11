@@ -20,7 +20,7 @@ export default function Login() {
                 <Text style={styles.label}>Senha</Text>
                 <TextInput style={styles.input} placeholder="Digite uma senha" />
 
-                <TouchableOpacity onPress={() => { navigation.navigate('Wellcome') }}>
+                <TouchableOpacity onPress={() => { navigation.navigate('Resume') }}>
                     <LinearGradient
                         colors={['rgb(71, 36, 164)', 'rgb(102, 58, 193)', 'rgb(139, 33, 202)']}
                         style={styles.button}

@@ -20,7 +20,7 @@ export default function ContentWrapper(props: ContentProps) {
             <View style={styles.backPlaceNavBar}>
                 <Text>Esconder</Text>
             </View>
-            <StatusBar style="auto" />
+            <StatusBar style="dark" />
         </SafeAreaView>
     )
 }
@@ -31,17 +31,17 @@ const styles = StyleSheet.create({
         height: '100%',
         width: '100%',
         flexDirection: 'column',
-        backgroundColor: 'rgb(27, 23, 41)',
+        backgroundColor: 'rgb(0, 0, 0)',
     },
     content: {
-        padding: 12,
-        paddingTop: 32,
+        padding: 19,
+        paddingTop: 38,
         backgroundColor: 'white',
         borderBottomLeftRadius: 30,
         borderBottomRightRadius: 30,
     },
     backPlaceNavBar: {
         height: 60,
-        backgroundColor: 'rgb(27, 23, 41)',
+        backgroundColor: 'rgb(0, 0, 0)',
     }
 })
