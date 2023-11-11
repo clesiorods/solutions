@@ -13,7 +13,7 @@ export default function Resume() {
   return (
     <ContentWrapper>
       {/* HEADER DA PÁGINA */}
-      <View className='flex flex-row justify-between my-4 mx-6'>
+      <View className='flex flex-row justify-between my-6 mx-10'>
           <SimpleLineIcons name="layers" size={24} color="black" />
           <Text className='text-lg' >Resumo</Text>
           <SimpleLineIcons name="bell" size={24} color="black" />

@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         height: 200,
-        padding: 20,
+        paddingVertical: 8,
+        paddingHorizontal: 20,
     },
     card: {
         backgroundColor: 'white',
