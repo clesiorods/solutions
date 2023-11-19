@@ -7,58 +7,52 @@ import Card from '../../components/Card';
 import { VictoryChart, VictoryBoxPlot, VictoryPie } from 'victory-native';
 import HeaderWrapper from '../../components/HeaderWrapper';
 import { Image } from 'expo-image';
+import GradientText from '../../components/TextGradient';
 
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 45,
-    width: 45,
-  },
-  image: {
-    flex: 1,
-    height: 45,
-    width: 45,
-    backgroundColor: '#0553',
-    borderRadius: 25,
-  },
-});
 
 
 export default function Resume() {
 
   return (
     <ContentWrapper>
-      {/* HEADER DA PÁGINA */}
       <HeaderWrapper>
-        <View style={styles.container}>
-          <Image
-            style={styles.image}
-            source="https://avatars.githubusercontent.com/u/20101892?v=4"
-            placeholder={blurhash}
-            contentFit="cover"
-            transition={1000}
-          />
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View style={headerStyles.container}>
+            <Image
+              style={headerStyles.image}
+              source="https://avatars.githubusercontent.com/u/20101892?v=4"
+              placeholder={blurhash}
+              contentFit="cover"
+              transition={1000}
+            />
+          </View>
+          <View style={{ marginLeft: 6 }} >
+            <Text style={{ opacity: .5, marginBottom: -4 }} >Boa tarde!</Text>
+            <Text style={{ fontSize: 18, fontWeight: '600' }} >Clesio Rodrigues</Text>
+          </View>
         </View>
-        <Text >Resumo</Text>
+
         <SimpleLineIcons name="bell" size={24} color="black" />
       </HeaderWrapper>
 
+
       <ScrollView>
         {/* DIV VALOR DE RESUMO */}
-        <View style={{ marginHorizontal: 16 }} >
-          <Text  >Gastos do Mês</Text>
+        <View style={{ marginHorizontal: 16, marginTop: 6 }} >
+          <Text style={{ marginBottom: -4 }} >Gastos de Novembro</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
-            <Text  >R$ 1.809,35</Text>
+
+            {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
+            <GradientText style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</GradientText>
+
             <SimpleLineIcons name="action-redo" size={24} color="black" />
           </View>
         </View>
 
-        <Card style={{ backgroundColor: 'rgb(161, 231, 32)' }} >
+        <Card style={{ backgroundColor: '#49009c' }} >
         </Card>
 
         <View style={{ flexDirection: 'row' }}>
@@ -72,6 +66,7 @@ export default function Resume() {
 
         <Card>
           <Text>Teste de card</Text>
+          <GradientText>Hello World</GradientText>
         </Card>
 
         <Card>
@@ -103,3 +98,21 @@ export default function Resume() {
     </ContentWrapper>
   )
 }
+
+
+
+const headerStyles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 45,
+    width: 45,
+  },
+  image: {
+    flex: 1,
+    height: 45,
+    width: 45,
+    backgroundColor: '#0553',
+    borderRadius: 25,
+  },
+});
