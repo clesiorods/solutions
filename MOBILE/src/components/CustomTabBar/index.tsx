@@ -1,5 +1,6 @@
 import { View, TouchableOpacity, StyleSheet, Platform, Text } from 'react-native'
 import { SimpleLineIcons } from '@expo/vector-icons'
+import { SecundaryColor } from '../Styles/colors';
 
 // PÁGINAS QUE NÃO TERÃO NAVBAR
 const hideTabBar = [0];
@@ -74,11 +75,11 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
                     <SimpleLineIcons
                       name={arrayIcons[index].icon}
                       size={20}
-                      color={isFocused ? '#ffffff' : '#535353'}
+                      color={isFocused ? '#ffffff' : '#5f5f5f'}
                     />
                   </View>
                 </View>
-                <Text style={{ color: isFocused ? '#ffffff' : '#535353', fontSize: 9 }} >{arrayIcons[index].name}</Text>
+                <Text style={{ color: isFocused ? '#ffffff' : '#5f5f5f', fontSize: 9 }} >{arrayIcons[index].name}</Text>
               </TouchableOpacity>
             );
           })}
@@ -104,7 +105,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     bottom: 12,
-    backgroundColor: 'rgba(0, 0, 0, 1)',
+    backgroundColor: SecundaryColor,
     flexDirection: 'row',
     elevation: 10,
     shadowColor: 'rgba(0,0,0,.2)',

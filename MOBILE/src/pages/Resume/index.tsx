@@ -8,6 +8,8 @@ import { VictoryChart, VictoryBoxPlot, VictoryPie } from 'victory-native';
 import HeaderWrapper from '../../components/HeaderWrapper';
 import { Image } from 'expo-image';
 import GradientText from '../../components/TextGradient';
+import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../components/Styles/colors';
+
 
 const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
@@ -36,13 +38,15 @@ export default function Resume() {
         </View>
 
         <SimpleLineIcons name="bell" size={24} color="black" />
+        {/* <HomeIcon/> */}
+
       </HeaderWrapper>
 
 
       <ScrollView>
         {/* DIV VALOR DE RESUMO */}
-        <View style={{ marginHorizontal: 16, marginTop: 6 }} >
-          <Text style={{ marginBottom: -4 }} >Gastos de Novembro</Text>
+        <View style={{ marginHorizontal: 16, marginTop: 6}} >
+          <Text style={{ marginBottom: -4, opacity:.5  }} >Gastos de Novembro</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
             {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
@@ -52,14 +56,14 @@ export default function Resume() {
           </View>
         </View>
 
-        <Card style={{ backgroundColor: '#49009c' }} >
+        <Card style={{ backgroundColor: PrimaryColor }} >
         </Card>
 
         <View style={{ flexDirection: 'row' }}>
-          <Card style={{ backgroundColor: 'rgb(0, 0, 0)' }} size={0.5} position={1}>
+          <Card style={{ backgroundColor: SecundaryColor }} size={0.5} position={1}>
             <Text style={{ color: 'white' }} >Teste de card</Text>
           </Card>
-          <Card style={{ backgroundColor: 'rgb(182, 182, 182)' }} size={0.5} position={2}>
+          <Card style={{ backgroundColor: TertiaryColor }} size={0.5} position={2}>
             <Text>Teste de card</Text>
           </Card>
         </View>
