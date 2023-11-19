@@ -2,13 +2,14 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ContentWrapper from '../../components/PageWrapper';
-import { SimpleLineIcons } from '@expo/vector-icons';
+import { Octicons } from '@expo/vector-icons';
 import Card from '../../components/Card';
 import { VictoryChart, VictoryBoxPlot, VictoryPie } from 'victory-native';
 import HeaderWrapper from '../../components/HeaderWrapper';
 import { Image } from 'expo-image';
 import GradientText from '../../components/TextGradient';
 import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../components/Styles/colors';
+import HomeIcon from '../../components/Icons/HomeIcon';
 
 
 const blurhash =
@@ -37,22 +38,20 @@ export default function Resume() {
           </View>
         </View>
 
-        <SimpleLineIcons name="bell" size={24} color="black" />
-        {/* <HomeIcon/> */}
-
+        <Octicons name="bell" size={24} color="black" />
       </HeaderWrapper>
 
 
       <ScrollView>
         {/* DIV VALOR DE RESUMO */}
-        <View style={{ marginHorizontal: 16, marginTop: 6}} >
-          <Text style={{ marginBottom: -4, opacity:.5  }} >Gastos de Novembro</Text>
+        <View style={{ marginHorizontal: 16, marginTop: 6 }} >
+          <Text style={{ marginBottom: -4, opacity: .5 }} >Gastos de Novembro</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
             {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
-            <GradientText style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</GradientText>
+            <GradientText style={{ fontSize: 30, fontWeight: '900' }} >R$ 1.809,35</GradientText>
 
-            <SimpleLineIcons name="action-redo" size={24} color="black" />
+            <Octicons name="link-external" size={24} color="black" />
           </View>
         </View>
 
@@ -64,13 +63,13 @@ export default function Resume() {
             <Text style={{ color: 'white' }} >Teste de card</Text>
           </Card>
           <Card style={{ backgroundColor: TertiaryColor }} size={0.5} position={2}>
-            <Text>Teste de card</Text>
+          <Text style={{ color: 'white' }} >Teste de card</Text>
           </Card>
         </View>
 
         <Card>
           <Text>Teste de card</Text>
-          <GradientText>Hello World</GradientText>
+          {/* <GradientText>Hello World</GradientText> */}
         </Card>
 
         <Card>

@@ -1,6 +1,7 @@
 import { View, TouchableOpacity, StyleSheet, Platform, Text } from 'react-native'
-import { SimpleLineIcons } from '@expo/vector-icons'
+// import { SimpleLineIcons } from '@expo/vector-icons'
 import { SecundaryColor } from '../Styles/colors';
+import { Octicons } from '@expo/vector-icons';
 
 // PÁGINAS QUE NÃO TERÃO NAVBAR
 const hideTabBar = [0];
@@ -8,18 +9,18 @@ const hideTabBar = [0];
 // ICONES DA TABBAR DE ACORDO COM SUAS POSIÇÕES
 const arrayIcons:
   [
-    { icon: 'docs', name: 'Login' },
+    { icon: 'home', name: 'Login' },
     { icon: 'home', name: 'Resumo' },
-    { icon: 'docs', name: 'Relatórios' },
-    { icon: 'equalizer', name: 'Configurações' },
-    { icon: 'user', name: 'Conta' },
+    { icon: 'checklist', name: 'Relatórios' },
+    { icon: 'gear', name: 'Configurações' },
+    { icon: 'person', name: 'Conta' },
   ] =
   [
-    { icon: 'docs', name: 'Login' },
+    { icon: 'home', name: 'Login' },
     { icon: 'home', name: 'Resumo' },
-    { icon: 'docs', name: 'Relatórios' },
-    { icon: 'equalizer', name: 'Configurações' },
-    { icon: 'user', name: 'Conta' },
+    { icon: 'checklist', name: 'Relatórios' },
+    { icon: 'gear', name: 'Configurações' },
+    { icon: 'person', name: 'Conta' },
   ];
 
 
@@ -70,16 +71,16 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
                 onLongPress={onLongPress}
                 style={styles.buttonTab}
               >
-                <View style={{ alignItems: 'center', paddingTop: 2 }}>
+                <View style={{ alignItems: 'center', paddingTop: 0 }}>
                   <View style={{ padding: 2, borderRadius: 99, backgroundColor: isFocused ? "transparent" : "transparent" }}>
-                    <SimpleLineIcons
+                    <Octicons
                       name={arrayIcons[index].icon}
                       size={20}
                       color={isFocused ? '#ffffff' : '#5f5f5f'}
                     />
                   </View>
                 </View>
-                <Text style={{ color: isFocused ? '#ffffff' : '#5f5f5f', fontSize: 9 }} >{arrayIcons[index].name}</Text>
+                <Text style={{ marginTop:-2, color: isFocused ? '#ffffff' : '#5f5f5f', fontSize: 9 }} >{arrayIcons[index].name}</Text>
               </TouchableOpacity>
             );
           })}
