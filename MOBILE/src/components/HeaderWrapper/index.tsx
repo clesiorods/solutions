@@ -22,9 +22,10 @@ const styles = StyleSheet.create({
         width: '100%',
         // elevation:1,
         paddingTop: 38,
+        paddingHorizontal: 16,
         backgroundColor: 'white',
         flexDirection:'row',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems:'center'
     },
 })
