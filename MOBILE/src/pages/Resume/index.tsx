@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 50,
-    width: 50,
+    height: 45,
+    width: 45,
   },
   image: {
     flex: 1,
-    height: 50,
-    width: 50,
+    height: 45,
+    width: 45,
     backgroundColor: '#0553',
     borderRadius: 25,
   },
@@ -38,7 +38,7 @@ export default function Resume() {
         <View style={styles.container}>
           <Image
             style={styles.image}
-            source="https://picsum.photos/seed/696/3000/2000"
+            source="https://avatars.githubusercontent.com/u/20101892?v=4"
             placeholder={blurhash}
             contentFit="cover"
             transition={1000}
@@ -65,10 +65,14 @@ export default function Resume() {
           <Card style={{ backgroundColor: 'rgb(0, 0, 0)' }} size={0.5} position={1}>
             <Text style={{ color: 'white' }} >Teste de card</Text>
           </Card>
-          <Card size={0.5} position={2}>
+          <Card style={{ backgroundColor: 'rgb(182, 182, 182)' }} size={0.5} position={2}>
             <Text>Teste de card</Text>
           </Card>
         </View>
+
+        <Card>
+          <Text>Teste de card</Text>
+        </Card>
 
         <Card>
           <Text>Teste de card</Text>
