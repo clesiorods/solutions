@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-nativ
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
-import { StackTypes } from "../routes";
+import { StackTypes } from "../../routes";
 
 export default function Login() {
   const navigation = useNavigation<StackTypes>();

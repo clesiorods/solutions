@@ -24,15 +24,16 @@ const arrayIcons:
 
 export function CustomTabBar({ state, descriptors, navigation }: any) {
   if (hideTabBar.includes(state.index)) {
-    return (<></>);
+    return ('');
   } else {
     return (
-      <View style={styles.container}>
+      <View
+        style={styles.container}>
         <View style={styles.content}>
           {state.routes.map((route: any, index: any) => {
 
             if (hideTabBar.includes(index)) {
-              return (<></>);
+              return ('');
             }
 
             const { options } = descriptors[route.key];
@@ -72,7 +73,7 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
                   <View style={{ padding: 2, borderRadius: 99, backgroundColor: isFocused ? "transparent" : "transparent" }}>
                     <SimpleLineIcons
                       name={arrayIcons[index].icon}
-                      size={22}
+                      size={20}
                       color={isFocused ? '#ffffff' : '#535353'}
                     />
                   </View>
@@ -92,30 +93,30 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'red',
     width: '100%',
+    paddingHorizontal: 12
   },
   content: {
     height: 60,
     width: '100%',
     marginBottom: Platform.OS === 'ios' ? 0 : 0,
     position: 'absolute',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-around',
     alignItems: 'center',
-    bottom: 0,
-    borderBottomWidth: .5,
-    borderBottomColor: 'rgba(255, 255, 255, 0.404)',
-    backgroundColor: 'rgb(0, 0, 0)',
+    bottom: 12,
+    backgroundColor: 'rgba(0, 0, 0, 1)',
     flexDirection: 'row',
-    gap: 18,
     elevation: 10,
+    shadowColor: 'rgba(0,0,0,.2)',
     shadowOpacity: 0.2,
     shadowRadius: 3.80,
+    borderRadius: 15
   },
   buttonTab: {
     justifyContent: 'center',
     alignItems: 'center',
     // backgroundColor:'red',
-    minWidth:'18%'
+    borderRadius: 8,
+    minWidth: '18%'
   }
 })

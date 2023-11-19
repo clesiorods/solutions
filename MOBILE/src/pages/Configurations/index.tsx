@@ -1,16 +1,14 @@
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { useColorScheme } from 'nativewind';
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
-import ContentWrapper from '../components/ContentWrapper';
+import ContentWrapper from '../../components/PageWrapper';
 // import { StackTypes } from '../routes';
 
-export default function Reports() {
+export default function Configurations() {
 
-  const { colorScheme, toggleColorScheme } = useColorScheme();
   return (
     <ContentWrapper>
-          <Text>Relatórios</Text>
+          <Text>Configurações</Text>
     </ContentWrapper>
 
   )
