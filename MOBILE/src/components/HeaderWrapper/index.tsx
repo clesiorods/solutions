@@ -18,7 +18,7 @@ export default function HeaderWrapper(props: CardProps) {
 const styles = StyleSheet.create({
     headerWrapper: {
         display: 'flex',
-        height: 100,
+        height: 105,
         width: '100%',
         paddingTop: 38,
         paddingHorizontal: 16,

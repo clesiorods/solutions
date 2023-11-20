@@ -1,7 +1,6 @@
 
 import React from 'react';
 import {Text, StyleProp, TextStyle} from 'react-native';
-// import LinearGradient from 'react-native-linear-gradient';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
 import { PrimaryGradient } from '../Styles/colors';

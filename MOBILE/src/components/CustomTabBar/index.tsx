@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12
   },
   content: {
-    height: 60,
+    height: 54,
     width: '100%',
     marginBottom: Platform.OS === 'ios' ? 0 : 0,
     position: 'absolute',
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     backgroundColor: SecundaryColor,
     flexDirection: 'row',
     elevation: 10,
-    shadowColor: 'rgba(0,0,0,.2)',
+    shadowColor: 'rgba(0,0,0,.4)',
     shadowOpacity: 0.2,
     shadowRadius: 3.80,
     borderRadius: 15

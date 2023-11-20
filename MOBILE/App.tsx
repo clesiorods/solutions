@@ -10,7 +10,7 @@ export default function App() {
   NavigationBar.setButtonStyleAsync("dark");
   return (
     <NavigationContainer>
-      <StatusBar backgroundColor="#000a32f7" barStyle={'default'} />
+      <StatusBar backgroundColor="white" barStyle={'default'} />
       <Routes/>
     </NavigationContainer>
   );

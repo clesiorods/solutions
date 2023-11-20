@@ -18,9 +18,10 @@ export default function TextInput(props: InputProps) {
 const styles = StyleSheet.create({
     label: {
         fontSize: 16,
+        margin: 1
     },
     input: {
-        height: 48,
+        height: 54,
         borderRadius: 15,
         marginBottom: 8,
         fontSize: 16,

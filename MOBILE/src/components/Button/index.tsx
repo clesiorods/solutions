@@ -19,7 +19,7 @@ export default function Button(props: ButtonProps) {
 
 const styles = StyleSheet.create({
     button: {
-        height: 50,
+        height: 54,
         borderRadius: 15,
         flexDirection: 'row',
         justifyContent: 'center',

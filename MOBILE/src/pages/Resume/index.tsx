@@ -10,6 +10,7 @@ import { Image } from 'expo-image';
 import GradientText from '../../components/TextGradient';
 import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../components/Styles/colors';
 import HomeIcon from '../../components/Icons/HomeIcon';
+import LineChart from './LineChart';
 
 
 const blurhash =
@@ -38,7 +39,7 @@ export default function Resume() {
           </View>
         </View>
 
-        <Octicons name="bell" size={24} color="black" />
+        <Octicons name="bell" size={24} color={TertiaryColor} />
       </HeaderWrapper>
 
 
@@ -49,21 +50,22 @@ export default function Resume() {
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
             {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
-            <GradientText style={{ fontSize: 30, fontWeight: '900' }} >R$ 1.809,35</GradientText>
+            <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ 1.809,35</GradientText>
 
-            <Octicons name="link-external" size={24} color="black" />
+            <Octicons name="link-external" size={24} color={TertiaryColor} />
           </View>
         </View>
 
-        <Card style={{ backgroundColor: PrimaryColor }} >
+        <Card style={{ backgroundColor: PrimaryColor, position:'relative', padding:0 }} >
+            <LineChart />
         </Card>
 
         <View style={{ flexDirection: 'row' }}>
           <Card style={{ backgroundColor: SecundaryColor }} size={0.5} position={1}>
             <Text style={{ color: 'white' }} >Teste de card</Text>
           </Card>
-          <Card style={{ backgroundColor: TertiaryColor }} size={0.5} position={2}>
-          <Text style={{ color: 'white' }} >Teste de card</Text>
+          <Card size={0.5} position={2}>
+            <Text>Teste de card</Text>
           </Card>
         </View>
 
