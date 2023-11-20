@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "chart-app",
-    "slug": "chart-app",
+    "name": "finance-solutions",
+    "slug": "finance-solutions",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
