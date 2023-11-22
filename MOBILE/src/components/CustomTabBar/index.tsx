@@ -37,10 +37,8 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
       fadeOut()
     });
 
-    fadeOut()
-    setTimeout(() => {
-      fadeIn();
-    }, 2000);
+
+    fadeIn();
 
     return () => {
       hideSubscription.remove();
@@ -139,7 +137,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
-    paddingHorizontal: 12
+    paddingHorizontal: 14
   },
   content: {
     height: 54,
@@ -155,7 +153,7 @@ const styles = StyleSheet.create({
     shadowColor: 'rgba(0,0,0,.4)',
     shadowOpacity: 0.2,
     shadowRadius: 3.80,
-    borderRadius: 15
+    borderRadius: 14
   },
   buttonTab: {
     justifyContent: 'center',

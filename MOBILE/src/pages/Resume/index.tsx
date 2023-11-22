@@ -2,14 +2,13 @@ import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ContentWrapper from '../../components/PageWrapper';
-import { Octicons } from '@expo/vector-icons';
+import { Octicons, SimpleLineIcons } from '@expo/vector-icons';
 import Card from '../../components/Card';
 import { VictoryChart, VictoryBoxPlot, VictoryPie } from 'victory-native';
 import HeaderWrapper from '../../components/HeaderWrapper';
 import { Image } from 'expo-image';
 import GradientText from '../../components/TextGradient';
 import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../components/Styles/colors';
-import HomeIcon from '../../components/Icons/HomeIcon';
 import LineChart from './LineChart';
 import TextInput from '../../components/TextInput';
 
@@ -35,25 +34,25 @@ export default function Resume() {
             />
           </View>
           <View style={{ marginLeft: 6 }} >
-            <Text style={{ opacity: .5, marginBottom: -4 }} >Boa tarde!</Text>
+            <Text style={{ opacity: .5, marginBottom: -5 }} >Boa tarde!</Text>
             <Text style={{ fontSize: 18, fontWeight: '600' }} >Clesio Rodrigues</Text>
           </View>
         </View>
 
-        <Octicons name="bell" size={24} color={TertiaryColor} />
+        <SimpleLineIcons name="bell" size={24} color={SecundaryColor} />
       </HeaderWrapper>
 
 
       <ScrollView>
         {/* DIV VALOR DE RESUMO */}
-        <View style={{ marginHorizontal: 16, marginTop: 6 }} >
-          <Text style={{ marginBottom: -4, opacity: .5 }} >Gastos de Novembro</Text>
+        <View style={{ marginHorizontal: 18, marginTop: 6 }} >
+          <Text style={{ marginBottom: -5, opacity: .5 }} >Gastos de Novembro</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
 
             {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
             <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ 1.809,35</GradientText>
 
-            <Octicons name="link-external" size={24} color={TertiaryColor} />
+            <SimpleLineIcons style={{marginTop:10}} name="size-fullscreen" size={20} color={SecundaryColor} />
           </View>
         </View>
 
@@ -71,9 +70,7 @@ export default function Resume() {
         </View>
 
         <Card>
-          <View>
-            <TextInput label="Senha" placeholder="Digite uma senha" />
-          </View>
+            <TextInput label="Senha" color={'white'} placeholder="Digite uma senha" />
         </Card>
 
         <Card>
@@ -112,14 +109,16 @@ const headerStyles = StyleSheet.create({
   container: {
     alignItems: 'center',
     justifyContent: 'center',
-    height: 45,
-    width: 45,
+    height: 40,
+    width: 40,
   },
   image: {
     flex: 1,
-    height: 45,
-    width: 45,
+    height: 40,
+    width: 40,
     backgroundColor: '#0553',
     borderRadius: 25,
+    borderWidth: 2,
+    borderColor: '#4600a1'
   },
 });

@@ -36,8 +36,8 @@ export function AppRouter() {
                 <Screen name="Login" component={Login} />
                 <Screen name="Resume" component={Resume} />
                 <Screen name="Reports" component={Reports} />
-                <Screen name="Account" component={Account} />
                 <Screen name="Configurations" component={Configurations} />
+                <Screen name="Account" component={Account} />
             </Navigator>
         </NavigationContainer>
     );
