@@ -52,7 +52,7 @@ export default function Resume() {
             {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
             <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ 1.809,35</GradientText>
 
-            <SimpleLineIcons style={{marginTop:10}} name="size-fullscreen" size={20} color={SecundaryColor} />
+            <SimpleLineIcons style={{ marginTop: 10 }} name="size-fullscreen" size={20} color={SecundaryColor} />
           </View>
         </View>
 
@@ -70,11 +70,14 @@ export default function Resume() {
         </View>
 
         <Card>
-            <TextInput label="Senha" color={'white'} placeholder="Digite uma senha" />
+          <Text>Teste de card</Text>
         </Card>
 
+        <View style={{marginHorizontal:16, marginVertical:8}}>
+        <TextInput label="Teste" placeholder="Teste de input de texto" />
+        </View>
+
         <Card>
-          <Text>Teste de card</Text>
         </Card>
 
         <Card>

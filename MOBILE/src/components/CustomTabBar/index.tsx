@@ -27,8 +27,6 @@ const arrayIcons:
 
 export function CustomTabBar({ state, descriptors, navigation }: any) {
 
-  // console.log('descriptors', JSON.stringify(descriptors, null, 2));
-
   useEffect(() => {
     const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
       fadeIn()
@@ -37,8 +35,7 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
       fadeOut()
     });
 
-
-    fadeIn();
+    fadeOut();
 
     return () => {
       hideSubscription.remove();
@@ -60,75 +57,78 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 300,
+      duration: 200,
       useNativeDriver: true,
     }).start();
   };
 
 
   if (hideTabBar.includes(state.index)) {
-    return ('');
+    fadeOut()
   } else {
-    return (
-      <Animated.View
-        style={[styles.container, { opacity: fadeAnim }]}>
-        <View style={styles.content}>
-          {state.routes.map((route: any, index: any) => {
-
-            if (hideTabBar.includes(index)) {
-              return ('');
-            }
-
-            const { options } = descriptors[route.key];
-            const isFocused = state.index === index;
-
-            const onPress = () => {
-              const event = navigation.emit({
-                type: 'tabPress',
-                target: route.key,
-                canPreventDefault: true,
-              });
-
-              if (!isFocused && !event.defaultPrevented) {
-                navigation.navigate(route.name);
-              }
-            };
-
-            const onLongPress = () => {
-              navigation.emit({
-                type: 'tabLongPress',
-                target: route.key,
-              });
-            };
-
-            return (
-              <TouchableOpacity
-                key={route.key}
-                accessibilityRole="button"
-                accessibilityState={isFocused ? { selected: true } : {}}
-                accessibilityLabel={options.tabBarAccessibilityLabel}
-                testID={options.tabBarTestID}
-                onPress={onPress}
-                onLongPress={onLongPress}
-                style={styles.buttonTab}
-              >
-                <View style={{ alignItems: 'center', paddingTop: 0 }}>
-                  <View style={{ padding: 2, borderRadius: 99, backgroundColor: isFocused ? "transparent" : "transparent" }}>
-                    <Octicons
-                      name={arrayIcons[index].icon}
-                      size={20}
-                      color={isFocused ? '#ffffff' : '#5f5f5f'}
-                    />
-                  </View>
-                </View>
-                <Text style={{ marginTop: -2, color: isFocused ? '#ffffff' : '#5f5f5f', fontSize: 9 }} >{arrayIcons[index].name}</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </View>
-      </Animated.View>
-    );
+    fadeIn()
   }
+
+  return (
+    <Animated.View
+      style={[styles.container, { opacity: fadeAnim }]}>
+      <View style={styles.content}>
+        {state.routes.map((route: any, index: any) => {
+
+          if (hideTabBar.includes(index)) {
+            return ('');
+          }
+
+          const { options } = descriptors[route.key];
+          const isFocused = state.index === index;
+
+          const onPress = () => {
+            const event = navigation.emit({
+              type: 'tabPress',
+              target: route.key,
+              canPreventDefault: true,
+            });
+
+            if (!isFocused && !event.defaultPrevented) {
+              navigation.navigate(route.name);
+            }
+          };
+
+          const onLongPress = () => {
+            navigation.emit({
+              type: 'tabLongPress',
+              target: route.key,
+            });
+          };
+
+          return (
+            <TouchableOpacity
+              key={route.key}
+              accessibilityRole="button"
+              accessibilityState={isFocused ? { selected: true } : {}}
+              accessibilityLabel={options.tabBarAccessibilityLabel}
+              testID={options.tabBarTestID}
+              onPress={onPress}
+              onLongPress={onLongPress}
+              style={styles.buttonTab}
+            >
+              <View style={{ alignItems: 'center', paddingTop: 0 }}>
+                <View style={{ padding: 2, borderRadius: 99, backgroundColor: isFocused ? "transparent" : "transparent" }}>
+                  <Octicons
+                    name={arrayIcons[index].icon}
+                    size={20}
+                    color={isFocused ? '#ffffff' : '#5f5f5f'}
+                  />
+                </View>
+              </View>
+              <Text style={{ marginTop: -2, color: isFocused ? '#ffffff' : '#5f5f5f', fontSize: 9 }} >{arrayIcons[index].name}</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
+    </Animated.View>
+  );
+
 }
 
 
