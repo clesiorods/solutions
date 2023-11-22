@@ -11,6 +11,7 @@ import GradientText from '../../components/TextGradient';
 import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../components/Styles/colors';
 import HomeIcon from '../../components/Icons/HomeIcon';
 import LineChart from './LineChart';
+import TextInput from '../../components/TextInput';
 
 
 const blurhash =
@@ -56,8 +57,8 @@ export default function Resume() {
           </View>
         </View>
 
-        <Card style={{ backgroundColor: PrimaryColor, position:'relative', padding:0 }} >
-            <LineChart />
+        <Card style={{ backgroundColor: PrimaryColor, position: 'relative', padding: 0 }} >
+          <LineChart />
         </Card>
 
         <View style={{ flexDirection: 'row' }}>
@@ -70,8 +71,9 @@ export default function Resume() {
         </View>
 
         <Card>
-          <Text>Teste de card</Text>
-          {/* <GradientText>Hello World</GradientText> */}
+          <View>
+            <TextInput label="Senha" placeholder="Digite uma senha" />
+          </View>
         </Card>
 
         <Card>

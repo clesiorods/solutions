@@ -1,7 +1,8 @@
-import { View, TouchableOpacity, StyleSheet, Platform, Text } from 'react-native'
+import { View, TouchableOpacity, Animated, StyleSheet, Platform, Text, Keyboard } from 'react-native'
 // import { SimpleLineIcons } from '@expo/vector-icons'
 import { SecundaryColor } from '../Styles/colors';
 import { Octicons } from '@expo/vector-icons';
+import { useEffect, useRef, useState } from 'react';
 
 // PÁGINAS QUE NÃO TERÃO NAVBAR
 const hideTabBar = [0];
@@ -25,12 +26,54 @@ const arrayIcons:
 
 
 export function CustomTabBar({ state, descriptors, navigation }: any) {
+
+  // console.log('descriptors', JSON.stringify(descriptors, null, 2));
+
+  useEffect(() => {
+    const hideSubscription = Keyboard.addListener('keyboardDidHide', () => {
+      fadeIn()
+    });
+    const showSubscription = Keyboard.addListener('keyboardDidShow', () => {
+      fadeOut()
+    });
+
+    fadeOut()
+    setTimeout(() => {
+      fadeIn();
+    }, 2000);
+
+    return () => {
+      hideSubscription.remove();
+      showSubscription.remove();
+    };
+  }, []);
+
+
+  const fadeAnim = useRef(new Animated.Value(0)).current;
+
+  const fadeOut = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 0,
+      duration: 0,
+      useNativeDriver: true,
+    }).start();
+  };
+
+  const fadeIn = () => {
+    Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+  };
+
+
   if (hideTabBar.includes(state.index)) {
     return ('');
   } else {
     return (
-      <View
-        style={styles.container}>
+      <Animated.View
+        style={[styles.container, { opacity: fadeAnim }]}>
         <View style={styles.content}>
           {state.routes.map((route: any, index: any) => {
 
@@ -80,12 +123,12 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
                     />
                   </View>
                 </View>
-                <Text style={{ marginTop:-2, color: isFocused ? '#ffffff' : '#5f5f5f', fontSize: 9 }} >{arrayIcons[index].name}</Text>
+                <Text style={{ marginTop: -2, color: isFocused ? '#ffffff' : '#5f5f5f', fontSize: 9 }} >{arrayIcons[index].name}</Text>
               </TouchableOpacity>
             );
           })}
         </View>
-      </View>
+      </Animated.View>
     );
   }
 }

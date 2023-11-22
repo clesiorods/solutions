@@ -1,17 +1,20 @@
-
-import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar } from 'react-native';
-import Routes from './src/routes';
-import * as NavigationBar from 'expo-navigation-bar';
-
+import { StatusBar } from 'expo-status-bar';
+import { StyleSheet, Text, View } from 'react-native';
+import { AppRouter } from './src/routes/app.router';
 
 export default function App() {
-  NavigationBar.setBackgroundColorAsync("white");
-  NavigationBar.setButtonStyleAsync("dark");
   return (
-    <NavigationContainer>
-      <StatusBar backgroundColor="white" barStyle={'default'} />
-      <Routes/>
-    </NavigationContainer>
+    <View style={{flex:1}}>
+      <AppRouter/>
+    </View>
   );
 }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#fff',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//   },
+// });
