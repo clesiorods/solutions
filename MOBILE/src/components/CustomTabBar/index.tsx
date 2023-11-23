@@ -35,7 +35,7 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
       fadeOut()
     });
 
-    fadeOut();
+    fadeIn();
 
     return () => {
       hideSubscription.remove();
@@ -57,7 +57,7 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
   const fadeIn = () => {
     Animated.timing(fadeAnim, {
       toValue: 1,
-      duration: 200,
+      duration: 250,
       useNativeDriver: true,
     }).start();
   };
@@ -65,6 +65,7 @@ export function CustomTabBar({ state, descriptors, navigation }: any) {
 
   if (hideTabBar.includes(state.index)) {
     fadeOut()
+    return('');
   } else {
     fadeIn()
   }
