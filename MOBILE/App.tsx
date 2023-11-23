@@ -4,8 +4,8 @@ import { AppRouter } from './src/routes/app.router';
 import * as NavigationBar from 'expo-navigation-bar';
 
 export default function App() {
-  NavigationBar.setBackgroundColorAsync("white");
-  NavigationBar.setButtonStyleAsync("dark");
+  NavigationBar.setBackgroundColorAsync("#823fcf");
+  NavigationBar.setButtonStyleAsync("light");
 
   return (
     <View style={{flex:1}}>
@@ -13,12 +13,3 @@ export default function App() {
     </View>
   );
 }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });

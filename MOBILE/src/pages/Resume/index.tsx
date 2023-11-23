@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, TouchableOpacity, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ContentWrapper from '../../components/PageWrapper';
 import { Octicons, SimpleLineIcons } from '@expo/vector-icons';
 import Card from '../../components/Card';
@@ -11,6 +11,7 @@ import GradientText from '../../components/TextGradient';
 import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../components/Styles/colors';
 import LineChart from './LineChart';
 import TextInput from '../../components/TextInput';
+import { StackTypes } from '../../routes/app.router';
 
 
 const blurhash =
@@ -20,26 +21,32 @@ const blurhash =
 
 export default function Resume() {
 
+  const navigation = useNavigation<StackTypes>();
+
   return (
     <ContentWrapper>
       <HeaderWrapper>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <View style={headerStyles.container}>
-            <Image
-              style={headerStyles.image}
-              source="https://avatars.githubusercontent.com/u/20101892?v=4"
-              placeholder={blurhash}
-              contentFit="cover"
-              transition={1000}
-            />
-          </View>
+          <TouchableOpacity onPress={() => { navigation.navigate('Account') }}>
+            <View style={headerStyles.container}>
+              <Image
+                style={headerStyles.image}
+                source="https://avatars.githubusercontent.com/u/20101892?v=4"
+                placeholder={blurhash}
+                contentFit="cover"
+                transition={1000}
+              />
+            </View>
+          </TouchableOpacity>
           <View style={{ marginLeft: 6 }} >
             <Text style={{ opacity: .5, marginBottom: -5 }} >Boa tarde!</Text>
             <Text style={{ fontSize: 18, fontWeight: '600' }} >Clesio Rodrigues</Text>
           </View>
         </View>
 
-        <SimpleLineIcons name="bell" size={24} color={SecundaryColor} />
+        <TouchableOpacity>
+          <SimpleLineIcons name="bell" style={{ marginTop: 8 }} size={24} color={SecundaryColor} />
+        </TouchableOpacity>
       </HeaderWrapper>
 
 
@@ -52,7 +59,7 @@ export default function Resume() {
             {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
             <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ 1.809,35</GradientText>
 
-            <SimpleLineIcons style={{ marginTop: 10 }} name="size-fullscreen" size={20} color={SecundaryColor} />
+            <SimpleLineIcons style={{ marginTop: 10, marginRight: 2 }} name="size-fullscreen" size={20} color={SecundaryColor} />
           </View>
         </View>
 
@@ -73,8 +80,8 @@ export default function Resume() {
           <Text>Teste de card</Text>
         </Card>
 
-        <View style={{marginHorizontal:16, marginVertical:8}}>
-        <TextInput label="Teste" placeholder="Teste de input de texto" />
+        <View style={{ marginHorizontal: 16, marginVertical: 8 }}>
+          <TextInput label="Teste" placeholder="Teste de input de texto" />
         </View>
 
         <Card>
