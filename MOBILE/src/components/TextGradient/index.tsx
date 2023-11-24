@@ -3,7 +3,7 @@ import React from 'react';
 import {Text, StyleProp, TextStyle} from 'react-native';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
-import { PrimaryGradient } from '../Styles/colors';
+import { PrimaryGradient } from '../../styles/colors';
 
 interface TextGradientProps {
     children: React.ReactNode;

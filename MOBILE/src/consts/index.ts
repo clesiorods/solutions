@@ -1,0 +1,1 @@
+export const BASE_URL = 'http://vps50284.publiccloud.com.br:50644';

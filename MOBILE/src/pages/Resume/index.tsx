@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, TouchableOpacity, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Pressable, TouchableOpacity, TextInput, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ContentWrapper from '../../components/PageWrapper';
 import { Octicons, SimpleLineIcons } from '@expo/vector-icons';
 import Card from '../../components/Card';
@@ -8,10 +8,13 @@ import { VictoryChart, VictoryBoxPlot, VictoryPie } from 'victory-native';
 import HeaderWrapper from '../../components/HeaderWrapper';
 import { Image } from 'expo-image';
 import GradientText from '../../components/TextGradient';
-import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../components/Styles/colors';
+import { PrimaryColor, SecundaryColor, TertiaryColor } from '../../styles/colors';
 import LineChart from './LineChart';
-import TextInput from '../../components/TextInput';
 import { StackTypes } from '../../routes/app.router';
+import { useAuth } from '../../hooks/AuthContext';
+import InputLabel from '../../components/InputLabel';
+import { DefaultStyles } from '../../styles/defaultStyles';
+import { useEffect, useState } from 'react';
 
 
 const blurhash =
@@ -22,6 +25,15 @@ const blurhash =
 export default function Resume() {
 
   const navigation = useNavigation<StackTypes>();
+  const { authState } = useAuth();
+
+  const [inputTeste, setInputTeste] = useState('');
+  const [hours, setHours] = useState(0);
+
+  useEffect(() => {
+    const d = new Date();
+    setHours(d.getHours());
+  }, []);
 
   return (
     <ContentWrapper>
@@ -39,8 +51,10 @@ export default function Resume() {
             </View>
           </TouchableOpacity>
           <View style={{ marginLeft: 6 }} >
-            <Text style={{ opacity: .5, marginBottom: -5 }} >Boa tarde!</Text>
-            <Text style={{ fontSize: 18, fontWeight: '600' }} >Clesio Rodrigues</Text>
+            <Text style={{ opacity: .5, marginBottom: -5 }} >
+              {(hours > 4 && hours < 12) ? 'Bom dia!' : ((hours >= 12 && hours < 18) ? 'Boa tarde!' : 'Boa noite!')}
+            </Text>
+            <Text style={{ fontSize: 18, fontWeight: '600' }} >{authState.user.name}</Text>
           </View>
         </View>
 
@@ -55,10 +69,7 @@ export default function Resume() {
         <View style={{ marginHorizontal: 18, marginTop: 6 }} >
           <Text style={{ marginBottom: -5, opacity: .5 }} >Gastos de Novembro</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
-
-            {/* <Text style={{ fontSize: 28, fontWeight: '900' }} >R$ 1.809,35</Text> */}
             <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ 1.809,35</GradientText>
-
             <SimpleLineIcons style={{ marginTop: 10, marginRight: 2 }} name="size-fullscreen" size={20} color={SecundaryColor} />
           </View>
         </View>
@@ -72,7 +83,7 @@ export default function Resume() {
             <Text style={{ color: 'white' }} >Teste de card</Text>
           </Card>
           <Card size={0.5} position={2}>
-            <Text>Teste de card</Text>
+            <Text>{inputTeste ? inputTeste : 'Teste de card'}</Text>
           </Card>
         </View>
 
@@ -81,7 +92,8 @@ export default function Resume() {
         </Card>
 
         <View style={{ marginHorizontal: 16, marginVertical: 8 }}>
-          <TextInput label="Teste" placeholder="Teste de input de texto" />
+          <InputLabel>Teste</InputLabel>
+          <TextInput style={DefaultStyles.inputText} value={inputTeste} onChangeText={setInputTeste} placeholder="Teste de input de texto" />
         </View>
 
         <Card>

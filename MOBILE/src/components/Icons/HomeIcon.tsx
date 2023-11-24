@@ -1,6 +1,6 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
-import { SecundaryColor } from "../Styles/colors"
+import { SecundaryColor } from "../../styles/colors"
 
 interface IconProps {
     color?: string;

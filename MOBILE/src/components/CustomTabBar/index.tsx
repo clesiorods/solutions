@@ -1,6 +1,6 @@
 import { View, TouchableOpacity, Animated, StyleSheet, Platform, Text, Keyboard } from 'react-native'
 // import { SimpleLineIcons } from '@expo/vector-icons'
-import { SecundaryColor } from '../Styles/colors';
+import { SecundaryColor } from '../../styles/colors';
 import { Octicons } from '@expo/vector-icons';
 import { useEffect, useRef, useState } from 'react';
 

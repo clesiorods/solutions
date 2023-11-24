@@ -1,5 +1,5 @@
 import { View, StyleSheet, ColorValue, Text, StyleProp, ViewStyle, ActivityIndicator } from 'react-native';
-import { SecundaryColor } from '../Styles/colors';
+import { SecundaryColor } from '../../styles/colors';
 
 interface ButtonProps {
     color?: ColorValue | undefined,
