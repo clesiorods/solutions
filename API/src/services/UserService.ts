@@ -6,8 +6,6 @@ import { z } from "zod";
 import { CreateUserProps, createUserSchema } from "../schemas/user.schemas";
 
 
-// import { createUserSchema } from '../'
-
 interface IUser {
     email: string;
     name: string;
@@ -48,7 +46,6 @@ export class UserService {
 
 
     async create(props: CreateUserProps) {
-
         const data = createUserSchema.parse(props);
         if (data.password !== data.passwordConfirmation ) {
             throw new Error('Não foi realizar esta operação. As senhas não coicidem.');
@@ -57,7 +54,6 @@ export class UserService {
         if (userExist) {
             throw new Error('Não foi realizar esta operação. Usuário já cadastrado.');
         }
-
         const passwordHash = await hash(data.password, 8);
 
         let newUser = await this.prisma.user.create({
@@ -65,7 +61,7 @@ export class UserService {
                 name: data.name,
                 email: data.email,
                 password: passwordHash,
-                // is_admin: data.is_admin ? Number(data.is_admin) : 0,
+                photo_url: data.photo_url
             }
         });
 

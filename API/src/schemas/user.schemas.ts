@@ -46,6 +46,7 @@ export const createUserSchema = z.object({
     .string()
     .email('Please inform a valid email address')
     .min(1, 'Email is required'),
+  photo_url: z.string().optional(),
   password: z
     .string()
     .min(6, 'Password must be at least 6 characters'),

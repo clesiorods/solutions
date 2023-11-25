@@ -1,0 +1,34 @@
+import { PrismaClient } from "@prisma/client";
+import { CreateModuleProps, createModuleSchema } from "../schemas/module.schemas";
+import { createPayableProps, createPayableSchema } from "../schemas/payable.schemas";
+
+
+
+export class PayableService {
+
+    prisma = new PrismaClient()
+
+    async create(props: createPayableProps) {
+        const data = createPayableSchema.parse(props);
+        data.created_by
+        const modules = await this.prisma.payables.create({data:data});
+        // return modules;
+    }
+
+
+    // async update(props: CreateModuleProps, id: number) {
+    //     console.log();
+    //     const data = createModuleSchema.parse(props);
+    //     data.created_by
+    //     const modules = await this.prisma.module.update(
+    //         { data, where: { id } }
+    //     );
+    //     return modules;
+    // }
+
+
+    // async findAll() {
+    //     const modules = await this.prisma.module.findMany({ where: { deleted_at: null }, orderBy: {order:"asc"} });
+    //     return modules;
+    // }
+}

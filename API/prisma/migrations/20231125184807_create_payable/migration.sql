@@ -1,0 +1,25 @@
+-- CreateTable
+CREATE TABLE "Payables" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "title" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "code" TEXT NOT NULL,
+    "date_expiration" DATETIME NOT NULL,
+    "date_payment" DATETIME NOT NULL,
+    "value" REAL NOT NULL,
+    "discount" REAL NOT NULL,
+    "addiction" REAL NOT NULL,
+    "amount_paid" REAL NOT NULL,
+    "is_parcel" INTEGER NOT NULL DEFAULT 0,
+    "first_parcel" INTEGER NOT NULL,
+    "total_parcel_value" REAL NOT NULL,
+    "quantity_parcel" INTEGER NOT NULL,
+    "id_user" INTEGER NOT NULL,
+    "obs" TEXT NOT NULL,
+    "created_at" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "created_by" INTEGER,
+    "updated_at" DATETIME NOT NULL,
+    "updated_by" INTEGER,
+    "deleted_at" DATETIME,
+    "deleted_by" INTEGER
+);

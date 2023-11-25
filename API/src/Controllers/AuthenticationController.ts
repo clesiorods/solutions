@@ -5,32 +5,29 @@ import AuthenticationService from "../services/AuthenticationService";
 export default class AuthenticationController {
 
     async authenticate(req: Request, res: Response) {
-        console.log('Tentando logar...');
         try {
             const { email, password } = req.body;
             const authenticationService = new AuthenticationService();
             const token = await authenticationService.authenticate({ email, password });
-            console.log('Deu certo');
             return res.status(200).json(token);
 
         } catch (error: any) {
-            console.log('Deu errado');
             return res.status(400).json(error.message);
         }
     }
 
 
-    // async useRefreshToken(req: Request, res: Response) {
-    //     try {
-    //         const { refresh_token } = req.body;
-    //         const authenticationService = new AuthenticationService();
-    //         const tokens = await authenticationService.useRefreshToken(refresh_token);
-    //         return res.json(tokens);
+    async useRefreshToken(req: Request, res: Response) {
+        try {
+            const { refresh_token } = req.body;
+            const authenticationService = new AuthenticationService();
+            const tokens = await authenticationService.useRefreshToken(refresh_token);
+            return res.json(tokens);
             
-    //     } catch (error:any) {
-    //         return res.status(500).json(
-    //             error.message
-    //         )
-    //     }
-    // }
+        } catch (error:any) {
+            return res.status(401).json(
+                error.message
+            )
+        }
+    }
 }

@@ -20,6 +20,7 @@ router.get('/', (req, res) => {
 //////////////// RORAS DE TESTE DE AUTENTICAÇÃO //////////////////////
 router.post('/user', userController.create);
 router.post('/login', authenticationController.authenticate);
+router.post('/refresh-token', authenticationController.useRefreshToken);
 // router.post('/refresh-token', authenticationController.useRefreshToken);
 
 

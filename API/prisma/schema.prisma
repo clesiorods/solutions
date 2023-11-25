@@ -15,15 +15,47 @@ model User {
   name           String?
   email          String    @unique
   password       String    @default("")
+  photo_url      String    @default("")
   is_admin       Int       @default(0)
   is_super_admin Int       @default(0)
-  posts          Note[]
+  notes          Note[]
   created_at     DateTime  @default(now())
   created_by     Int?
   updated_at     DateTime  @updatedAt
   updated_by     Int?
   deleted_at     DateTime?
   deleted_by     Int?
+}
+
+model RefreshToken {
+  id        String @id @default(uuid())
+  expiresIn Int
+  id_user   Int
+}
+
+model Payables {
+  id                 Int       @id @default(autoincrement())
+  title              String?
+  description        String?
+  code               String?
+  date_expiration    DateTime
+  date_payment       DateTime?
+  value              Float
+  discount           Float?    @default(0)
+  addiction          Float?    @default(0)
+  amount_paid        Float?    @default(0)
+  is_parcel          Int?      @default(0)
+  first_parcel       Int?
+  total_parcel_value Float?
+  quantity_parcel    Int?
+  id_user            Int
+  obs                String?
+  created_at         DateTime  @default(now())
+  created_by         Int?
+  updated_at         DateTime  @updatedAt
+  updated_by         Int?
+  deleted_at         DateTime?
+  deleted_by         Int?
 }
 
 model Module {
