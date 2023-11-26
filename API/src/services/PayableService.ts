@@ -10,9 +10,25 @@ export class PayableService {
 
     async create(props: createPayableProps) {
         const data = createPayableSchema.parse(props);
-        data.created_by
-        const modules = await this.prisma.payables.create({data:data});
-        // return modules;
+        const payable = await this.prisma.payables.create({ data });
+        return payable;
+    }
+
+
+    async findAll() {
+        const payables = await this.prisma.payables.findMany(
+            {
+                select: { id: true, title: true, date_expiration: true, value: true, is_parcel: true },
+                where: { deleted_at: null },
+                orderBy: { date_expiration: "asc" }
+            });
+        return payables;
+    }
+
+
+    async findOne(id:number) {
+        const payables = await this.prisma.payables.findUniqueOrThrow({ where: { id: id } });
+        return payables;
     }
 
 
@@ -23,12 +39,6 @@ export class PayableService {
     //     const modules = await this.prisma.module.update(
     //         { data, where: { id } }
     //     );
-    //     return modules;
-    // }
-
-
-    // async findAll() {
-    //     const modules = await this.prisma.module.findMany({ where: { deleted_at: null }, orderBy: {order:"asc"} });
     //     return modules;
     // }
 }

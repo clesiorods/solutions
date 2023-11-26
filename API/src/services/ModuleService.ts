@@ -5,10 +5,9 @@ import { CreateModuleProps, createModuleSchema } from "../schemas/module.schemas
 
 export class ModuleService {
 
-
     prisma = new PrismaClient()
 
-
+    
     async create(props: CreateModuleProps) {
         const data = createModuleSchema.parse(props);
         data.created_by
@@ -18,7 +17,6 @@ export class ModuleService {
 
 
     async update(props: CreateModuleProps, id: number) {
-        console.log();
         const data = createModuleSchema.parse(props);
         data.created_by
         const modules = await this.prisma.module.update(

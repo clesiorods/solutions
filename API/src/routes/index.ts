@@ -5,11 +5,15 @@ import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
 import { ensureAdmin } from "../middlewares/ensureAdmin";
 import { ModuleController } from "../Controllers/ModuleController";
 import { ensureSuperAdmin } from "../middlewares/ensureSuperAdmin";
+import { PayableController } from "../Controllers/PayableController";
+import { PagesController } from "../Controllers/PagesController";
 
 const router = Router();
 const userController = new UserController();
 const authenticationController = new AuthenticationController();
 const moduleController = new ModuleController();
+const payableController = new PayableController();
+const pagesController = new PagesController();
 
 //////////////// RORAS DE TESTE DE AUTENTICAÇÃO //////////////////////
 router.get('/', (req, res) => {
@@ -38,6 +42,17 @@ router.get('/user/:id', ensureAuthenticated, userController.findOne);
 router.get('/module', ensureAuthenticated, moduleController.findAll);
 router.post('/module', ensureSuperAdmin, moduleController.create);
 router.put('/module/:id', ensureSuperAdmin, moduleController.update);
+
+
+//////////////// RORAS DE CONTAS //////////////////////
+router.post('/payable', ensureAuthenticated, payableController.create);
+router.get('/payable', ensureAuthenticated, payableController.findAll);
+router.get('/payable/:id', ensureAuthenticated, payableController.findOne);
+// router.put('/module/:id', ensureAuthenticated, moduleController.update);
+
+
+//////////////// RORAS DAS PÁGINAS //////////////////////
+router.get('/page-resume/', ensureAuthenticated, pagesController.resumePage);
 
 
 export default router
