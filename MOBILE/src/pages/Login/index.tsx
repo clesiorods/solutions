@@ -21,7 +21,7 @@ export default function Login() {
     const { login } = useAuth();
 
     const [isLoading, setIsLoading] = useState(false);
-    const [email, setEmail] = useState('maria@mail.com');
+    const [email, setEmail] = useState('clesio@gmail.com');
     const [password, setPassword] = useState('123456');
 
     const hadleLogin = async () => {
@@ -39,14 +39,17 @@ export default function Login() {
         return Alert.alert('Atenção', message, [
             {
                 text: 'Ask me later',
-                onPress: () => console.log('Ask me later pressed'),
+                // onPress: () => console.log('Ask me later pressed'),
             },
             {
                 text: 'Cancel',
-                onPress: () => console.log('Cancel Pressed'),
                 style: 'cancel',
+                // onPress: () => console.log('Cancel Pressed'),
             },
-            { text: 'OK', onPress: () => console.log('OK Pressed') },
+            {
+                text: 'OK',
+                // onPress: () => console.log('OK Pressed')
+            },
         ])
     };
 
@@ -55,7 +58,7 @@ export default function Login() {
             <StatusBar backgroundColor="white" style="dark" />
 
             <View style={styles.containerHeader} >
-                <GradientText style={{ fontSize: 34, fontWeight: '900', marginTop:24 }} >SOLUTIONS</GradientText>
+                <GradientText style={{ fontSize: 34, fontWeight: '900', marginTop: 24 }} >SOLUTIONS</GradientText>
             </View>
 
             <View style={styles.containerForm}>

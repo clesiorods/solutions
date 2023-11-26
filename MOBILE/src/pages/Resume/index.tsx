@@ -25,15 +25,34 @@ const blurhash =
 export default function Resume() {
 
   const navigation = useNavigation<StackTypes>();
-  const { authState } = useAuth();
+  const { authState, api_auth } = useAuth();
 
   const [inputTeste, setInputTeste] = useState('');
   const [hours, setHours] = useState(0);
+  const [paidSum, setPaidSum] = useState(0);
+  const [costsSum, setCostsSum] = useState(0);
+
+
+
+  const getPageData = async () => {
+    await api_auth.get('/page-resume').then((resp) => {
+      setCostsSum(resp.data.costSum);
+      setPaidSum(resp.data.paidSum);
+    });
+  }
+
 
   useEffect(() => {
     const d = new Date();
     setHours(d.getHours());
   }, []);
+
+  useEffect(() => {
+    if (authState.token) {
+      getPageData();
+    }
+  }, [authState.token])
+
 
   return (
     <ContentWrapper>
@@ -69,7 +88,7 @@ export default function Resume() {
         <View style={{ marginHorizontal: 18, marginTop: 6 }} >
           <Text style={{ marginBottom: -5, opacity: .5 }} >Gastos de Novembro</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
-            <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ 1.809,35</GradientText>
+            <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ {costsSum.toLocaleString('pt-br', { minimumFractionDigits: 2 })}</GradientText>
             <SimpleLineIcons style={{ marginTop: 10, marginRight: 2 }} name="size-fullscreen" size={20} color={SecundaryColor} />
           </View>
         </View>
@@ -80,7 +99,9 @@ export default function Resume() {
 
         <View style={{ flexDirection: 'row' }}>
           <Card style={{ backgroundColor: SecundaryColor }} size={0.5} position={1}>
-            <Text style={{ color: 'white' }} >Teste de card</Text>
+            <TouchableOpacity onPress={getPageData}>
+              <Text style={{ color: 'white' }} >Teste de card</Text>
+            </TouchableOpacity>
           </Card>
           <Card size={0.5} position={2}>
             <Text>{inputTeste ? inputTeste : 'Teste de card'}</Text>

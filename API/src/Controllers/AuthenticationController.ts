@@ -8,9 +8,12 @@ export default class AuthenticationController {
         try {
             const { email, password } = req.body;
             const authenticationService = new AuthenticationService();
-            const token = await authenticationService.authenticate({ email, password });
-            return res.status(200).json(token);
-
+            const resp = await authenticationService.authenticate({ email, password });
+            if(resp.token) {
+                return res.status(200).json(resp);
+            } else {
+                return res.status(401).json(resp);
+            }
         } catch (error: any) {
             return res.status(400).json(error.message);
         }
@@ -21,8 +24,12 @@ export default class AuthenticationController {
         try {
             const { refresh_token } = req.body;
             const authenticationService = new AuthenticationService();
-            const tokens = await authenticationService.useRefreshToken(refresh_token);
-            return res.json(tokens);
+            const resp = await authenticationService.useRefreshToken(refresh_token);
+            if(resp.token) {
+                return res.status(200).json(resp);
+            } else {
+                return res.status(401).json(resp);
+            }
             
         } catch (error:any) {
             return res.status(401).json(

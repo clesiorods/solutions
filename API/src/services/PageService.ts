@@ -12,8 +12,8 @@ export class PagesService {
     async ResumePage() {
         const firstDate = dayjs().startOf('month').valueOf()-(3600000*3);
         const lastDate = dayjs().endOf('month').valueOf()-(3600000*3);
-        let sumPaid = 0;
-        let sumReceived = 0;
+        let costSum = 0;
+        let receivedSum = 0;
 
         const monthPayable: Payables[] = await this.prisma.$queryRaw`
         SELECT 
@@ -24,13 +24,13 @@ export class PagesService {
 
         monthPayable.forEach((p) => {
             if(p.type == 2) {
-                sumPaid += Number(p.amount_paid);
+                costSum += Number(p.amount_paid);
             }
             if(p.type == 1) {
-                sumReceived += Number(p.amount_paid);
+                receivedSum += Number(p.amount_paid);
             }
         })
 
-        return { sumPaid, sumReceived, monthPayable };
+        return { costSum, receivedSum, monthPayable };
     }
 }

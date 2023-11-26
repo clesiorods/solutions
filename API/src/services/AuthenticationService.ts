@@ -18,6 +18,7 @@ interface IResponse {
     }
     token: string;
     refreshToken: string;
+    message?: string
 }
 
 
@@ -30,12 +31,12 @@ export default class AuthenticationService {
     async authenticate({ email, password }: IRequest): Promise<IResponse> {
         const user = await this.prisma.user.findUniqueOrThrow({ where: { email: email } })
         if (!user) {
-            throw new Error("Usuário ou senha incorreta");
+            return { message: 'Usuário ou senha incorreta' } as IResponse;
         }
         const passwordMatch = await compare(password, user.password);
 
         if (!passwordMatch) {
-            throw new Error("Usuário ou senha incorreta. Tente novamente");
+            return { message: 'Usuário ou senha incorreta. Tente novamente' } as IResponse;
         }
         const token = await this.newToken(Number(user.id));
         const refreshToken = await this.newRefreshToken(Number(user.id));
@@ -72,12 +73,12 @@ export default class AuthenticationService {
                     }
                 });
             if (!user) {
-                throw new Error("Usuário não cadastrado");
+                return { message: 'Usuário não cadastrado' } as IResponse;
             }
 
             return ({ user, token: newToken, refreshToken: newRefreshToken });
         } else {
-            throw new Error("Invalid refresh token");
+            return {message: 'Refresh token inválido'} as IResponse;
         }
 
     }
