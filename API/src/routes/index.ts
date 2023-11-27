@@ -17,7 +17,7 @@ const pagesController = new PagesController();
 
 //////////////// RORAS DE TESTE DE AUTENTICAÇÃO //////////////////////
 router.get('/', (req, res) => {
-    return res.json({status:'200', message:'Está tudo certo!'});
+    return res.json({status:'200', message:'Está tudo certo!', version: '0.2.3'});
 });
 
 
