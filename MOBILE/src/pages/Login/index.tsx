@@ -7,22 +7,23 @@ import GradientText from "../../components/TextGradient";
 import Button from "../../components/Button";
 // import TextInput from "../../components/TextInput";
 import { StackTypes } from "../../routes/app.router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import * as NavigationBar from 'expo-navigation-bar';
 import { useAuth } from "../../hooks/AuthContext";
 import InputLabel from "../../components/InputLabel";
 import { DefaultStyles } from "../../styles/defaultStyles";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 export default function Login() {
-    const navigation = useNavigation<StackTypes>();
 
-    const { login } = useAuth();
+    const navigation = useNavigation<StackTypes>();
+    const { login, authState } = useAuth();
 
     const [isLoading, setIsLoading] = useState(false);
-    const [email, setEmail] = useState('clesio@gmail.com');
-    const [password, setPassword] = useState('123456');
+    const [email, setEmail] = useState(authState?.user?.email);
+    const [password, setPassword] = useState('');
 
     const hadleLogin = async () => {
         setIsLoading(true);
@@ -34,6 +35,20 @@ export default function Login() {
             errorAlert();
         }
     }
+
+    const getLastEmail = async () => {
+        const last_email_login = await AsyncStorage.getItem('last_email_login');
+        setEmail(last_email_login ? last_email_login : '');
+    }
+
+    useEffect(() => {
+        setPassword('')
+        getLastEmail();
+    },[authState])
+
+    useEffect(() => {
+        getLastEmail();
+    }, [])
 
     const errorAlert = (message: string = 'Não foi possível realizar o login') => {
         return Alert.alert('Atenção', message, [

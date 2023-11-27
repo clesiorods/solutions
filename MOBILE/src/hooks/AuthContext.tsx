@@ -58,10 +58,12 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (email: string, password: string) => {
     try {
       const response = await axios.post(`${BASE_URL}/login`, { email, password });
+      console.log(JSON.stringify(response, null, 2));
       const { user, token, refreshToken } = response.data;
       await AsyncStorage.setItem('token', token);
       await AsyncStorage.setItem('refreshToken', refreshToken);
       await AsyncStorage.setItem('user', JSON.stringify(user));
+      await AsyncStorage.setItem('last_email_login', email);
 
       setAuthState({ user, token, refreshToken, loading: false, error: null });
       return { success: true, user };

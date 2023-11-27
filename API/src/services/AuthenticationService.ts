@@ -128,14 +128,14 @@ export default class AuthenticationService {
     async newToken(id_user: number) {
         const token = sign({}, `${process.env.TOKEN_KEY}`, {
             subject: id_user.toString(),
-            expiresIn: "30s",
+            expiresIn: "10m",
         });
         return token;
     }
 
 
     async newRefreshToken(id_user: number) {
-        const expiresIn = dayjs().add(1, "minute").unix();
+        const expiresIn = dayjs().add(1, "day").unix();
         const refreshTable = this.prisma.refreshToken;
         await refreshTable.deleteMany({ where: { id_user: id_user } });
 

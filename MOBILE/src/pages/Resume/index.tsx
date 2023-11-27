@@ -4,7 +4,7 @@ import { Pressable, TouchableOpacity, TextInput, ScrollView, StyleSheet, Text, V
 import ContentWrapper from '../../components/PageWrapper';
 import { Octicons, SimpleLineIcons } from '@expo/vector-icons';
 import Card from '../../components/Card';
-import { VictoryChart, VictoryBoxPlot, VictoryPie } from 'victory-native';
+import { VictoryPie } from 'victory-native';
 import HeaderWrapper from '../../components/HeaderWrapper';
 import { Image } from 'expo-image';
 import GradientText from '../../components/TextGradient';
@@ -21,17 +21,16 @@ const blurhash =
   '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
 
-
 export default function Resume() {
 
   const navigation = useNavigation<StackTypes>();
   const { authState, api_auth } = useAuth();
 
+  
   const [inputTeste, setInputTeste] = useState('');
   const [hours, setHours] = useState(0);
   const [paidSum, setPaidSum] = useState(0);
   const [costsSum, setCostsSum] = useState(0);
-
 
 
   const getPageData = async () => {
@@ -78,7 +77,7 @@ export default function Resume() {
         </View>
 
         <TouchableOpacity>
-          <SimpleLineIcons name="bell" style={{ marginTop: 8 }} size={24} color={SecundaryColor} />
+          <SimpleLineIcons name="bell" style={{ marginTop: 4 }} size={24} color={SecundaryColor} />
         </TouchableOpacity>
       </HeaderWrapper>
 

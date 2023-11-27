@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     justifyContent: 'space-around',
     alignItems: 'center',
-    bottom: 12,
+    bottom: 13.5,
     backgroundColor: SecundaryColor,
     flexDirection: 'row',
     elevation: 10,

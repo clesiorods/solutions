@@ -19,7 +19,7 @@ export default function LineChart() {
                 maxDomain={{ y: 6 }}
                 minDomain={{ y: -5 }}
                 animate={{
-                    duration: 400
+                    duration: 350
                 }}
                 categories={{ x: ["dogs", "cats", "mice"] }}
                 containerComponent={
