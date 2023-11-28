@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { View, useWindowDimensions } from "react-native";
 import {
     VictoryChart,
     VictoryLine,
@@ -12,9 +12,18 @@ import {
 
 
 export default function LineChart() {
+
+    const {
+        // height,
+        width,
+        // scale,
+        // fontScale
+    } = useWindowDimensions();
+    // console.log(`Largura da tela ${width}`);
+
     return (
         <View style={{ position: 'absolute' }} >
-            <VictoryChart height={160} width={400}
+            <VictoryChart height={160} width={width-18}
                 domainPadding={{ y: 0, x: 0 }}
                 maxDomain={{ y: 6 }}
                 minDomain={{ y: -5 }}

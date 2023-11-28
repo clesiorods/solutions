@@ -1,6 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import { StatusBar } from 'expo-status-bar';
-import { Pressable, TouchableOpacity, TextInput, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity, TextInput, ScrollView, StyleSheet, Text, View } from 'react-native';
 import ContentWrapper from '../../components/PageWrapper';
 import { Octicons, SimpleLineIcons } from '@expo/vector-icons';
 import Card from '../../components/Card';
@@ -15,6 +14,8 @@ import { useAuth } from '../../hooks/AuthContext';
 import InputLabel from '../../components/InputLabel';
 import { DefaultStyles } from '../../styles/defaultStyles';
 import { useEffect, useState } from 'react';
+import { Skeleton } from 'moti/skeleton';
+import { SkeletonCommonProps } from '../../lib/SkeletonProps';
 
 
 const blurhash =
@@ -23,21 +24,26 @@ const blurhash =
 
 export default function Resume() {
 
+
   const navigation = useNavigation<StackTypes>();
   const { authState, api_auth } = useAuth();
 
-  
+
   const [inputTeste, setInputTeste] = useState('');
   const [hours, setHours] = useState(0);
   const [paidSum, setPaidSum] = useState(0);
   const [costsSum, setCostsSum] = useState(0);
+  const [loading, setLoading] = useState(true);
 
 
   const getPageData = async () => {
-    await api_auth.get('/page-resume').then((resp) => {
-      setCostsSum(resp.data.costSum);
-      setPaidSum(resp.data.paidSum);
-    });
+    setTimeout(async () => {
+      await api_auth.get('/page-resume').then((resp) => {
+        setCostsSum(resp.data.costSum);
+        setPaidSum(resp.data.paidSum);
+        setLoading(false);
+      });
+    }, 1000);
   }
 
 
@@ -77,7 +83,7 @@ export default function Resume() {
         </View>
 
         <TouchableOpacity>
-          <SimpleLineIcons name="bell" style={{ marginTop: 4 }} size={24} color={SecundaryColor} />
+          <SimpleLineIcons name="bell" style={{ marginTop: 4 }} size={22} color={SecundaryColor} />
         </TouchableOpacity>
       </HeaderWrapper>
 
@@ -87,7 +93,14 @@ export default function Resume() {
         <View style={{ marginHorizontal: 18, marginTop: 6 }} >
           <Text style={{ marginBottom: -5, opacity: .5 }} >Gastos de Novembro</Text>
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }} >
-            <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ {costsSum.toLocaleString('pt-br', { minimumFractionDigits: 2 })}</GradientText>
+
+            {loading ?
+              <View style={{ marginTop: 6, marginBottom:4 }}>
+                <Skeleton height={30} width={160} {...SkeletonCommonProps} />
+              </View> :
+              <GradientText style={{ fontSize: 30, fontWeight: '700' }} >R$ {costsSum.toLocaleString('pt-br', { minimumFractionDigits: 2 })}</GradientText>
+            }
+
             <SimpleLineIcons style={{ marginTop: 10, marginRight: 2 }} name="size-fullscreen" size={20} color={SecundaryColor} />
           </View>
         </View>

@@ -17,7 +17,7 @@ export default function PageWrapper(props: CardProps) {
 
     useEffect(() => {
         if(!authState.token) {
-            console.log('Expulsando o usuário');
+            // console.log('Expulsando o usuário');
             navigation.navigate('Login');
         }
     }, [authState])

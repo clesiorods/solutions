@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity, Alert, TextInput } from "react-native"
+import { View, Text, StyleSheet, TouchableOpacity, Alert, TextInput, Keyboard } from "react-native"
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
@@ -27,6 +27,7 @@ export default function Login() {
 
     const hadleLogin = async () => {
         setIsLoading(true);
+        Keyboard.dismiss()
         const loginResponse = await login(email, password);
         setIsLoading(false);
         if (loginResponse.success) {
@@ -78,7 +79,7 @@ export default function Login() {
 
             <View style={styles.containerForm}>
                 <InputLabel>E-mail</InputLabel>
-                <TextInput style={DefaultStyles.inputText} value={email} onChangeText={setEmail} inputMode="email" placeholder="Digite um e-mail" />
+                <TextInput keyboardType="email-address" style={DefaultStyles.inputText} value={email} onChangeText={setEmail} inputMode="email" placeholder="Digite um e-mail" />
                 <InputLabel>Senha</InputLabel>
                 <TextInput style={DefaultStyles.inputText} value={password} onChangeText={setPassword} secureTextEntry placeholder="Digite uma senha" />
 
