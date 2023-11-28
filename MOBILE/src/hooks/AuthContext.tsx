@@ -58,7 +58,7 @@ const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (email: string, password: string) => {
     try {
       const response = await axios.post(`${BASE_URL}/login`, { email, password });
-      console.log(JSON.stringify(response, null, 2));
+      // console.log(JSON.stringify(response, null, 2));
       const { user, token, refreshToken } = response.data;
       await AsyncStorage.setItem('token', token);
       await AsyncStorage.setItem('refreshToken', refreshToken);
