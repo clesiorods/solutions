@@ -32,7 +32,8 @@
     "react-native-svg-transformer": "^1.1.0",
     "react-native-vector-icons": "^10.0.2",
     "victory-native": "^36.6.12",
-    "react-native-reanimated": "~3.3.0"
+    "react-native-reanimated": "~3.3.0",
+    "expo-local-authentication": "~13.4.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
