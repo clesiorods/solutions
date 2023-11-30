@@ -23,13 +23,13 @@ export default function Account() {
 
   async function verifyAvaiableAuth() {
     const compatible = await LocalAuthentication.hasHardwareAsync();
-    // console.log(compatible);
     const types = await LocalAuthentication.supportedAuthenticationTypesAsync();
+    // console.log(compatible);
     // console.log(types);
   }
 
 
-  async function handleAuth() {
+  async function handlePrintAuth() {
     const hasDigitalPrint = await LocalAuthentication.isEnrolledAsync();
     if (!hasDigitalPrint) {
       return console.log('Não há biometria cadastrada');
@@ -72,7 +72,7 @@ export default function Account() {
           </Text>
 
           <TouchableOpacity
-            onPress={handleAuth}
+            onPress={handlePrintAuth}
             style={{ width: 300, marginTop: 32 }}
           >
             <Button >Autenticar</Button>

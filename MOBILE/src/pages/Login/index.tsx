@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Alert, TextInput, Keyboard } from "react-native"
-
+import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from "@react-navigation/native";
 import { PrimaryColor, TertiaryColor } from "../../styles/colors";
@@ -14,6 +14,10 @@ import { useAuth } from "../../hooks/AuthContext";
 import InputLabel from "../../components/InputLabel";
 import { DefaultStyles } from "../../styles/defaultStyles";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import axios from "axios";
+import { BASE_URL } from "../../consts";
+import * as LocalAuthentication from "expo-local-authentication";
+
 
 
 export default function Login() {
@@ -24,6 +28,9 @@ export default function Login() {
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState(authState?.user?.email);
     const [password, setPassword] = useState('');
+    const [localAuthAvelable, setLocalAuthAvelable] = useState(false);
+    const [showFooter, setShowFooter] = useState(true);
+
 
     const hadleLogin = async () => {
         setIsLoading(true);
@@ -37,19 +44,61 @@ export default function Login() {
         }
     }
 
+    const verifyRefreshToken = async () => {
+        const hasDigitalPrint = await LocalAuthentication.isEnrolledAsync();
+        const compatible = await LocalAuthentication.hasHardwareAsync();
+        const types = await LocalAuthentication.supportedAuthenticationTypesAsync();
+
+        if (authState.refreshToken && hasDigitalPrint && compatible && types.includes(1)) {
+            axios.post(`${BASE_URL}/verify-refresh-token`, { refresh_token: authState.refreshToken })
+                .then((resp) => {
+                    // console.log('resposta', JSON.stringify(resp.data, null, 2));
+                    if (resp.data.success) {
+                        setLocalAuthAvelable(true);
+                    }
+                }).catch((error) => {
+                    // console.log('Login por bionetria indiponível');
+                    // console.log('meu refresh token = ' + authState.refreshToken);
+                })
+        }
+    }
+
+
+    async function loginWithDigitalPrint() {
+        const auth = await LocalAuthentication.authenticateAsync({
+            promptMessage: 'Autenticação',
+            fallbackLabel: 'Biometria não reconhecida'
+        })
+        if (auth.success) {
+            navigation.navigate('Resume');
+        }
+    }
+
+
     const getLastEmail = async () => {
         const last_email_login = await AsyncStorage.getItem('last_email_login');
         setEmail(last_email_login ? last_email_login : '');
     }
 
+
     useEffect(() => {
         setPassword('')
         getLastEmail();
-    },[authState])
+        verifyRefreshToken();
+    }, [authState])
 
     useEffect(() => {
+        Keyboard.addListener('keyboardDidHide', () => {
+            setShowFooter(true);
+        });
+        Keyboard.addListener('keyboardDidShow', () => {
+            setShowFooter(false);
+        });
+
         getLastEmail();
+        verifyRefreshToken();
     }, [])
+
 
     const errorAlert = (message: string = 'Não foi possível realizar o login') => {
         return Alert.alert('Atenção', message, [
@@ -68,6 +117,7 @@ export default function Login() {
             },
         ])
     };
+
 
     return (
         <View style={styles.container} >
@@ -93,15 +143,30 @@ export default function Login() {
                     </LinearGradient>
                 </TouchableOpacity> */}
 
-                <TouchableOpacity style={{ marginTop: 24 }} activeOpacity={.75} onPress={hadleLogin}>
+                <TouchableOpacity style={{ marginTop: 22 }} activeOpacity={.75} onPress={hadleLogin}>
                     <Button loading={isLoading}>
                         Entrar
                     </Button>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{ marginTop: 14, alignSelf: "center" }} >
-                    <Text style={{ color: '#A1A1A1' }} >Não possui uma conta? Cadastre-se</Text>
-                </TouchableOpacity>
+                {localAuthAvelable && showFooter ?
+                    <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
+                        <TouchableOpacity onPress={loginWithDigitalPrint} style={{ width: 34 }}>
+                            <Ionicons name="finger-print-outline" size={34} color="black" />
+                        </TouchableOpacity>
+                    </View>
+                    : ''}
+
+
+                {showFooter ?
+                    <TouchableOpacity style={{ marginTop: 14, alignSelf: "center", position: 'absolute', bottom: 8 }} >
+                        <Text style={{ color: '#A1A1A1' }} >Não possui uma conta? Cadastre-se</Text>
+                    </TouchableOpacity>
+                    :
+                    ''
+                }
+
+
             </View>
         </View>
     );
