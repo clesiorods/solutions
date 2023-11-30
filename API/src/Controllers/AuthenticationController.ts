@@ -37,4 +37,24 @@ export default class AuthenticationController {
             )
         }
     }
+
+
+
+    async verifyRefreshToken(req: Request, res: Response) {
+        try {
+            const { refresh_token } = req.body;
+            const authenticationService = new AuthenticationService();
+            const resp = await authenticationService.verifyRefreshToken(refresh_token);
+            if(resp.success) {
+                return res.status(200).json(resp);
+            } else {
+                return res.status(401).json(resp);
+            }
+            
+        } catch (error:any) {
+            return res.status(401).json(
+                error.message
+            )
+        }
+    }
 }

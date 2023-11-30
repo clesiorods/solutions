@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
 router.post('/user', userController.create);
 router.post('/login', authenticationController.authenticate);
 router.post('/refresh-token', authenticationController.useRefreshToken);
+router.post('/verify-refresh-token', authenticationController.verifyRefreshToken);
 // router.post('/refresh-token', authenticationController.useRefreshToken);
 
 

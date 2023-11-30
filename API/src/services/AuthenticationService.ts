@@ -78,7 +78,7 @@ export default class AuthenticationService {
 
             return ({ user, token: newToken, refreshToken: newRefreshToken });
         } else {
-            return {message: 'Refresh token inválido'} as IResponse;
+            return { message: 'Refresh token inválido' } as IResponse;
         }
 
     }
@@ -146,6 +146,37 @@ export default class AuthenticationService {
             }
         });
         return newRefreshToken.id;
+    }
+
+
+    async verifyRefreshToken(id_refresh_token: string) {
+        const usersRepository = this.prisma.user;
+        const refreshRepository = this.prisma.refreshToken;
+        const currentRefreshToken = await refreshRepository.findUniqueOrThrow({ where: { id: id_refresh_token } })
+
+        if ((currentRefreshToken) && (currentRefreshToken.expiresIn > dayjs().unix())) {
+            const user = await usersRepository.findUniqueOrThrow(
+                {
+                    where: {
+                        id: currentRefreshToken.id_user,
+                        deleted_at: null
+                    },
+                    select: {
+                        id: true,
+                        name: true,
+                        email: true,
+                        photo_url: true,
+                        is_admin: true,
+                    }
+                });
+
+            if (!user) {
+                return { success: false, message: 'Refresh token inválido' };
+            }
+            return ({ success: true, validRefreshToken: true });
+        } else {
+            return { success: false, message: 'Refresh token inválido' };
+        }
     }
 
 }
