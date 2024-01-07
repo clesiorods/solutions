@@ -87,3 +87,19 @@ model Note {
   deleted_at DateTime?
   deleted_by Int?
 }
+
+model Stock {
+  id          Int       @id @default(autoincrement())
+  symbol      String
+  currency    String
+  shortName   String
+  longName    String
+  Description String
+  url_logo    String
+  created_at  DateTime  @default(now())
+  created_by  Int?
+  updated_at  DateTime  @updatedAt
+  updated_by  Int?
+  deleted_at  DateTime?
+  deleted_by  Int?
+}

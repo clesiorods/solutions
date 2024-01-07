@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import AuthenticationService from "../services/AuthenticationService";
+import AuthenticationService from "../Services/AuthenticationService";
 // import AuthenticateUserUseCase from "../useCases/authenticateUser/AuthenticateUserUseCase";
 
 export default class AuthenticationController {

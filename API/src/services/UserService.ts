@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import e from "express";
 import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
-import { CreateUserProps, createUserSchema } from "../schemas/user.schemas";
+import { CreateUserProps, createUserSchema } from "../Schemas/user.schemas";
 
 
 interface IUser {

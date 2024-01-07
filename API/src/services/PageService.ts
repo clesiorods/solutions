@@ -1,6 +1,6 @@
 import { Payables, PrismaClient } from "@prisma/client";
-import { CreateModuleProps, createModuleSchema } from "../schemas/module.schemas";
-import { createPayableProps, createPayableSchema } from "../schemas/payable.schemas";
+import { CreateModuleProps, createModuleSchema } from "../Schemas/module.schemas";
+import { createPayableProps, createPayableSchema } from "../Schemas/payable.schemas";
 import dayjs from "dayjs";
 
 

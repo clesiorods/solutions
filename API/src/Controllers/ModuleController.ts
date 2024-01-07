@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { ModuleService } from "../services/ModuleService";
-import AuthenticationService from "../services/AuthenticationService";
+import { ModuleService } from "../Services/ModuleService";
+import AuthenticationService from "../Services/AuthenticationService";
 
 
 export class ModuleController {

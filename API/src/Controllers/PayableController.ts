@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 // import { ModuleService } from "../services/ModuleService";
-import AuthenticationService from "../services/AuthenticationService";
-import { PayableService } from "../services/PayableService";
+import AuthenticationService from "../Services/AuthenticationService";
+import { PayableService } from "../Services/PayableService";
 
 
 export class PayableController {

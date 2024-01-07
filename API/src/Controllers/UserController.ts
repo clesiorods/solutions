@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { UserService } from "../services/UserService";
-import AuthenticationService from "../services/AuthenticationService";
+import { UserService } from "../Services/UserService";
+import AuthenticationService from "../Services/AuthenticationService";
 
 
 export class UserController {

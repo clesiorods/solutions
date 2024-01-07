@@ -1,12 +1,13 @@
 import { Router } from "express";
 import AuthenticationController from "../Controllers/AuthenticationController";
 import { UserController } from "../Controllers/UserController";
-import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
-import { ensureAdmin } from "../middlewares/ensureAdmin";
+import { ensureAuthenticated } from "../Middlewares/ensureAuthenticated";
+import { ensureAdmin } from "../Middlewares/ensureAdmin";
 import { ModuleController } from "../Controllers/ModuleController";
-import { ensureSuperAdmin } from "../middlewares/ensureSuperAdmin";
+import { ensureSuperAdmin } from "../Middlewares/ensureSuperAdmin";
 import { PayableController } from "../Controllers/PayableController";
 import { PagesController } from "../Controllers/PagesController";
+import { StocksController } from "../Controllers/StocksController";
 
 const router = Router();
 const userController = new UserController();
@@ -14,6 +15,7 @@ const authenticationController = new AuthenticationController();
 const moduleController = new ModuleController();
 const payableController = new PayableController();
 const pagesController = new PagesController();
+const stocksController = new StocksController();
 
 //////////////// RORAS DE TESTE DE AUTENTICAÇÃO //////////////////////
 router.get('/', (req, res) => {
@@ -54,6 +56,11 @@ router.get('/payable/:id', ensureAuthenticated, payableController.findOne);
 
 //////////////// RORAS DAS PÁGINAS //////////////////////
 router.get('/page-resume/', ensureAuthenticated, pagesController.resumePage);
+
+
+//////////////// RORAS DAS PÁGINAS //////////////////////
+router.get('/stocks/:symbol', ensureAuthenticated, stocksController.findOne);
+router.post('/stocks/:symbol', ensureAuthenticated, stocksController.add);
 
 
 export default router

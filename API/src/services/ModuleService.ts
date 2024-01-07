@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { CreateModuleProps, createModuleSchema } from "../schemas/module.schemas";
+import { CreateModuleProps, createModuleSchema } from "../Schemas/module.schemas";
 
 
 

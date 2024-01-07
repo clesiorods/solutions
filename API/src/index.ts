@@ -5,7 +5,7 @@ dotenv.config();
 
 import express from 'express';
 // import "reflect-metadata";
-import router from './routes';
+import router from './Routes';
 import cors from 'cors';
 
 const app = express();
@@ -22,11 +22,8 @@ app.use(express.json());
 app.use(router);
 
 
-
-
-
 app.listen(PORT, () => {
-  // console.clear();
+  console.clear();
   console.log(`==========================================`);
   console.log(`...Servidor rodando na porta ${PORT}...`);
 });
