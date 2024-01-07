@@ -61,6 +61,7 @@ router.get('/page-resume/', ensureAuthenticated, pagesController.resumePage);
 //////////////// RORAS DAS PÁGINAS //////////////////////
 router.get('/stocks/:symbol', ensureAuthenticated, stocksController.findOne);
 router.post('/stocks/:symbol', ensureAuthenticated, stocksController.add);
+router.put('/stocks/:symbol', ensureAuthenticated, stocksController.update);
 
 
 export default router

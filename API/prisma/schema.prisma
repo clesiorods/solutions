@@ -92,6 +92,7 @@ model Stock {
   id          Int       @id @default(autoincrement())
   symbol      String
   currency    String
+  type        String    @default("")
   shortName   String
   longName    String
   Description String

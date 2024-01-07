@@ -26,12 +26,25 @@ export class StocksController {
     async add(req: Request, res: Response): Promise<Response> {
         try {
             const stocksService = new StocksService();
-
             req.body.created_by = res.locals.id_user;
             const {symbol} = req.params;
             const result = await stocksService.add(symbol);
             return res.status(200).json(result);
+        } catch (error: any) {
+            return res.status(400).json({
+                err: error.message
+            })
+        }
+    }
 
+
+    async update(req: Request, res: Response): Promise<Response> {
+        try {
+            const stocksService = new StocksService();
+            req.body.created_by = res.locals.id_user;
+            const {symbol} = req.params;
+            const result = await stocksService.update(symbol);
+            return res.status(200).json(result);
         } catch (error: any) {
             return res.status(400).json({
                 err: error.message
