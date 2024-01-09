@@ -166,9 +166,6 @@ export class StocksService {
 
 
     async getInterval({ symbol, range, interval }: { symbol: string, range: string, interval: string }) {
-        console.log('symbol', symbol);
-        console.log('range', range);
-        console.log('interval', interval);
 
         let stock = await this.prisma.stock.findFirst({ where: { symbol: symbol.toUpperCase() } });
         if (!stock) {
