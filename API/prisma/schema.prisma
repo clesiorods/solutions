@@ -104,3 +104,22 @@ model Stock {
   deleted_at  DateTime?
   deleted_by  Int?
 }
+
+model MonthlyQuotes {
+  id            Int      @id @default(autoincrement())
+  id_stock      Int
+  symbol        String
+  date          DateTime
+  open          Float
+  high          Float
+  low           Float
+  close         Float
+  volume        Int
+  adjustedClose Float
+  created_at DateTime  @default(now())
+  created_by Int?
+  updated_at DateTime  @updatedAt
+  updated_by Int?
+  deleted_at DateTime?
+  deleted_by Int?
+}

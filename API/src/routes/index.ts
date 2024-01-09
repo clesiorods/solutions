@@ -62,6 +62,7 @@ router.get('/page-resume/', ensureAuthenticated, pagesController.resumePage);
 router.get('/stocks/:symbol', ensureAuthenticated, stocksController.findOne);
 router.post('/stocks/:symbol', ensureAuthenticated, stocksController.add);
 router.put('/stocks/:symbol', ensureAuthenticated, stocksController.update);
+router.get('/stocks/get-interval/:symbol', ensureAuthenticated, stocksController.getInterval);
 
 
 export default router

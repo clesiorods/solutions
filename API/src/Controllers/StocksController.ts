@@ -51,5 +51,21 @@ export class StocksController {
             })
         }
     }
+
+
+    async getInterval(req: Request, res: Response): Promise<Response> {
+        try {
+            const stocksService = new StocksService();
+            req.body.created_by = res.locals.id_user;
+            const {symbol} = req.params;
+            const {range, interval} = req.query;
+            const result = await stocksService.getInterval({symbol, range:`${range}`, interval:`${interval}`});
+            return res.status(200).json(result);
+        } catch (error: any) {
+            return res.status(400).json({
+                err: error.message
+            })
+        }
+    }
 }
 

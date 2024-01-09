@@ -1,5 +1,5 @@
 
-import { PrismaClient } from "@prisma/client";
+import { MonthlyQuotes, PrismaClient } from "@prisma/client";
 import axios from "axios";
 import { string } from "zod";
 
@@ -80,6 +80,38 @@ export class StocksService {
 
 
 
+    async addAlphaVantage(symbol: string) {
+        const APIKEY = `${process.env.QH5SZB3V9QZTOTJN}`;
+
+        const baseUrl = 'https://www.alphavantage.co/query';
+        const functionName = 'OVERVIEW';
+
+        try {
+            const response = await axios.get(baseUrl, {
+                params: {
+                    function: functionName,
+                    symbol: `${symbol}.SA`,
+                    apikey: APIKEY,
+                    interval: '5min'
+                },
+            });
+
+            const data = response.data;
+
+            if ('Global Quote' in data) {
+                const quoteData = data['Global Quote'];
+                return quoteData;
+            } else {
+                throw new Error("Dados indiponíveis");
+            }
+
+        } catch (error) {
+            throw new Error("Não foi possível comunicar-se com o host dos dados");
+        }
+    }
+
+
+
     async update(symbol: string) {
         let stockExists = await this.prisma.stock.findFirst({ where: { symbol: symbol.toUpperCase() } });
         if (!stockExists) {
@@ -133,35 +165,62 @@ export class StocksService {
 
 
 
-    async addAlphaVantage(symbol: string) {
-        const APIKEY = `${process.env.QH5SZB3V9QZTOTJN}`;
+    async getInterval({ symbol, range, interval }: { symbol: string, range: string, interval: string }) {
+        console.log('symbol', symbol);
+        console.log('range', range);
+        console.log('interval', interval);
 
-        const baseUrl = 'https://www.alphavantage.co/query';
-        const functionName = 'OVERVIEW';
+        let stock = await this.prisma.stock.findFirst({ where: { symbol: symbol.toUpperCase() } });
+        if (!stock) {
+            let respAdd = await this.add(symbol);
+            if (respAdd) {
+                stock = await this.prisma.stock.findFirst({ where: { symbol: symbol.toUpperCase() } });
+            }
+        }
+        // console.log('stock', stock);
 
         try {
-            const response = await axios.get(baseUrl, {
+            const response = await axios.get(`https://brapi.dev/api/quote/${symbol}`, {
                 params: {
-                    function: functionName,
-                    symbol: `${symbol}.SA`,
-                    apikey: APIKEY,
-                    interval: '5min'
+                    fundamental: true,
+                    // dividends:true,
+                    // modules:'balanceSheetHistory',
+                    interval: interval,
+                    range: range,
+                    token: `${process.env.BRAPI_APIKEY}`
                 },
             });
 
             const data = response.data;
-            console.log(data);
+            if (('results' in data) && (data['results'].length) && ('historicalDataPrice' in data['results'][0])) {
+                let contantData = data['results'][0].historicalDataPrice;
 
-            if ('Global Quote' in data) {
-                const quoteData = data['Global Quote'];
-                return quoteData;
+                let insertResp = await Promise.all(
+                    (contantData as MonthlyQuotes[]).map(async (element) => {
+                        return await this.prisma.monthlyQuotes.create({
+                            data: {
+                                id_stock: stock? stock.id : -1,
+                                symbol: symbol,
+                                adjustedClose: element.adjustedClose,
+                                close: element.close,
+                                date: (new Date(Number(element.date) * 1000)),
+                                high: element.high,
+                                low: element.low,
+                                open: element.open,
+                                volume: element.volume,
+                            }
+                        });
+                    }));
+                return insertResp;
             } else {
-                throw new Error("Dados indiponíveis");
+                return ("Nenhum dado foi encontrado");
             }
 
         } catch (error) {
+            console.log(error);
             throw new Error("Não foi possível comunicar-se com o host dos dados");
         }
     }
+
 
 }
