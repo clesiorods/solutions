@@ -16,8 +16,8 @@ import { IModules } from "@/interfaces";
 
 export default async function SideBar() {
 
-    // const clientRequest = new ServerRequest();
-    // const modules = await clientRequest.get<IModules[]>('module');
+    const clientRequest = new ServerRequest();
+    const modules = await clientRequest.get<IModules[]>('module');
 
 
     return (
